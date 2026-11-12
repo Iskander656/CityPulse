@@ -3,6 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Department;
+use App\Models\Report;
+use App\Models\ReportActivity;
+use App\Models\ReportAssignment;
+use App\Models\Role;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -86,5 +91,25 @@ class User extends Authenticatable
     public function isDepartmentOfficer(): bool
     {
         return $this->hasRole('department_officer');
+    }
+
+    public function assignedReports(): HasMany
+    {
+        return $this->hasMany(Report::class, 'assigned_officer_id');
+    }
+
+    public function receivedAssignments(): HasMany
+    {
+        return $this->hasMany(ReportAssignment::class, 'officer_id');
+    }
+
+    public function createdAssignments(): HasMany
+    {
+        return $this->hasMany(ReportAssignment::class, 'assigned_by');
+    }
+
+    public function activities(): HasMany
+    {
+        return $this->hasMany(ReportActivity::class);
     }
 }
