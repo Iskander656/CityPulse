@@ -1,10 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Citizen\DashboardController as CitizenDashboard;
+use App\Http\Controllers\Citizen\ReportController;
 use App\Http\Controllers\Officer\DashboardController as OfficerDashboard;
-use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,6 +33,17 @@ Route::middleware('auth')->group(function () {
         ->group(function () {
             Route::get('/dashboard', [CitizenDashboard::class, 'index'])
                 ->name('dashboard');
+            Route::get('/reports', [ReportController::class, 'index'])
+                ->name('reports.index');
+
+            Route::get('/reports/create', [ReportController::class, 'create'])
+                ->name('reports.create');
+
+            Route::post('/reports', [ReportController::class, 'store'])
+                ->name('reports.store');
+
+            Route::get('/reports/{report}', [ReportController::class, 'show'])
+                ->name('reports.show');
         });
 
     Route::prefix('officer')
