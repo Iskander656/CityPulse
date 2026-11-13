@@ -5,15 +5,12 @@
 @section('content')
 
     <div class="container py-5">
-
         <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold mb-0">My Reports</h2>
 
-            <h2 class="text-light">My Reports</h2>
-
-            <a href="{{ route('citizen.reports.create') }}" class="btn btn-danger">
-                + New Report
+            <a href="{{ route('citizen.dashboard') }}" class="btn btn-outline-light">
+                ← Back to Dashboard
             </a>
-
         </div>
 
         @if (session('success'))

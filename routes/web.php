@@ -4,7 +4,11 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Citizen\DashboardController as CitizenDashboard;
 use App\Http\Controllers\Citizen\ReportController;
+use App\Http\Controllers\Officer\ReportController as OfficerReportController;
 use App\Http\Controllers\Officer\DashboardController as OfficerDashboard;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Admin\DepartmentController as AdminDepartmentController;
+use App\Http\Controllers\Admin\ReportController as AdminReportController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -52,6 +56,14 @@ Route::middleware('auth')->group(function () {
         ->group(function () {
             Route::get('/dashboard', [OfficerDashboard::class, 'index'])
                 ->name('dashboard');
+            Route::get('/reports', [OfficerReportController::class, 'index'])
+                ->name('reports.index');
+
+            Route::get('/reports/{report}', [OfficerReportController::class, 'show'])
+                ->name('reports.show');
+
+            Route::patch('/reports/{report}', [OfficerReportController::class, 'update'])
+                ->name('reports.update');
         });
 
     Route::prefix('admin')
@@ -60,5 +72,35 @@ Route::middleware('auth')->group(function () {
         ->group(function () {
             Route::get('/dashboard', [AdminDashboard::class, 'index'])
                 ->name('dashboard');
+            Route::get('/users', [AdminUserController::class, 'index'])->name('users.index');
+            Route::get('/users/create', [AdminUserController::class, 'create'])->name('users.create');
+            Route::post('/users', [AdminUserController::class, 'store'])->name('users.store');
+            Route::get('/users/{user}/edit', [AdminUserController::class, 'edit'])->name('users.edit');
+            Route::put('/users/{user}', [AdminUserController::class, 'update'])->name('users.update');
+            Route::get('/departments', [AdminDepartmentController::class, 'index'])
+                ->name('departments.index');
+
+            Route::get('/departments/create', [AdminDepartmentController::class, 'create'])
+                ->name('departments.create');
+
+            Route::post('/departments', [AdminDepartmentController::class, 'store'])
+                ->name('departments.store');
+
+            Route::get('/departments/{department}/edit', [AdminDepartmentController::class, 'edit'])
+                ->name('departments.edit');
+
+            Route::put('/departments/{department}', [AdminDepartmentController::class, 'update'])
+                ->name('departments.update');
+
+            Route::patch('/departments/{department}/toggle', [AdminDepartmentController::class, 'toggleStatus'])
+                ->name('departments.toggle');
+            Route::get('/reports', [AdminReportController::class, 'index'])
+                ->name('reports.index');
+
+            Route::get('/reports/{report}', [AdminReportController::class, 'show'])
+                ->name('reports.show');
+
+            Route::patch('/reports/{report}/assignment', [AdminReportController::class, 'updateAssignment'])
+                ->name('reports.assignment.update');
         });
 });

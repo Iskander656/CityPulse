@@ -14,6 +14,22 @@
                     <div class="card-body p-4">
 
                         <h2 class="mb-4">Submit a City Report</h2>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <strong>Your report could not be submitted.</strong>
+                                <ul class="mb-0 mt-2">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
 
                         <form method="POST" action="{{ route('citizen.reports.store') }}" enctype="multipart/form-data">
 

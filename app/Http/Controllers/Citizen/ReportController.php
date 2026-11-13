@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Citizen;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Department;
 use App\Models\Report;
 use App\Models\ReportActivity;
 use App\Models\ReportImage;
@@ -40,7 +41,11 @@ class ReportController extends Controller
         $validated = $request->validate([
             'title' => ['required', 'string', 'max:150'],
             'description' => ['required', 'string', 'max:5000'],
-            'category_id' => ['required', 'exists:categories,id'],
+            'category_id' => [
+                'required',
+                'integer',
+                'exists:categories,id,is_active,1',
+            ],
             'latitude' => ['required', 'numeric', 'between:-90,90'],
             'longitude' => ['required', 'numeric', 'between:-180,180'],
             'address' => ['nullable', 'string', 'max:255'],
@@ -55,6 +60,28 @@ class ReportController extends Controller
 
         $status = ReportStatus::where('slug', 'submitted')->firstOrFail();
 
+        $departmentByCategory = [
+            'Road Damage' => 'Road Maintenance',
+            'Street Lighting' => 'Public Lighting',
+            'Traffic Signals' => 'Traffic Management',
+            'Road Obstructions' => 'Road Maintenance',
+            'Waste Management' => 'Waste Management',
+            'Public Infrastructure' => 'Public Infrastructure',
+        ];
+
+        $category = Category::findOrFail($validated['category_id']);
+        $departmentName = $departmentByCategory[$category->name] ?? null;
+
+        abort_if(
+            $departmentName === null,
+            422,
+            'No department is configured for this report category.'
+        );
+
+        $department = Department::where('name', $departmentName)
+            ->where('is_active', true)
+            ->firstOrFail();
+
         $storedFiles = [];
 
         try {
@@ -62,12 +89,14 @@ class ReportController extends Controller
                 $validated,
                 $request,
                 $status,
+                $department,
                 &$storedFiles
             ) {
                 $report = Report::create([
                     'user_id' => auth()->id(),
                     'category_id' => $validated['category_id'],
                     'status_id' => $status->id,
+                    'assigned_department_id' => $department->id,
                     'title' => $validated['title'],
                     'description' => $validated['description'],
                     'latitude' => $validated['latitude'],
@@ -110,7 +139,7 @@ class ReportController extends Controller
 
     public function show(Report $report): View
     {
-        abort_unless($report->user_id === auth()->id(), 404);
+        abort_unless((int) $report->user_id === (int) auth()->id(), 404);
 
         $report->load([
             'category',
