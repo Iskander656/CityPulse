@@ -28,6 +28,8 @@
         {{-- Department Performance --}}
         @include('admin.dashboard.partials.departments')
 
+        @include('admin.dashboard.partials.charts')
+
         {{-- Category Analytics and Recent Reports --}}
         <div class="row g-4 mb-4">
 

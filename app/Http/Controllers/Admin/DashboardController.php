@@ -69,6 +69,27 @@ class DashboardController extends Controller
             ->orderByDesc('total_reports')
             ->take(5)
             ->get();
+            
+        // Monthly reporting trends (last 6 months)
+        $monthlyReportTrends = [];
+
+        $startMonth = now()->subMonths(5)->startOfMonth();
+
+        $monthlyReports = Report::query()
+            ->where('created_at', '>=', $startMonth)
+            ->selectRaw("DATE_FORMAT(created_at, '%Y-%m') as month")
+            ->selectRaw('COUNT(*) as total')
+            ->groupBy('month')
+            ->pluck('total', 'month');
+
+        for ($i = 0; $i < 6; $i++) {
+            $month = $startMonth->copy()->addMonths($i);
+
+            $monthlyReportTrends[] = [
+                'month' => $month->format('M Y'),
+                'total' => (int) ($monthlyReports[$month->format('Y-m')] ?? 0),
+            ];
+        }
 
         // Recent reports
         $recentReports = Report::with([
@@ -91,6 +112,7 @@ class DashboardController extends Controller
             'resolutionRate',
             'departmentPerformance',
             'categoryInsights',
+            'monthlyReportTrends',
             'recentReports'
         ));
     }
