@@ -19,6 +19,21 @@
             </div>
         @endif
 
+        @if (session('ai_suggestion'))
+            <div class="alert alert-info">
+                <h5 class="alert-heading mb-2">🤖 CityPulse AI Analysis</h5>
+                <p class="mb-1">
+                    <strong>Suggested category:</strong>
+                    {{ session('ai_suggestion.category') }}
+                </p>
+                <p class="mb-1">
+                    <strong>Model confidence:</strong>
+                    {{ number_format((float) session('ai_suggestion.confidence') * 100, 2) }}%
+                </p>
+                <small>This is an AI recommendation. Your selected category remains unchanged.</small>
+            </div>
+        @endif
+
         <div class="card bg-dark border-secondary">
 
             <div class="card-body">

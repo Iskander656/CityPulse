@@ -1,0 +1,602 @@
+description,category
+"There is a large pothole in the middle of the road",Road Damage
+"The road surface is badly damaged near the intersection",Road Damage
+"Several cracks have appeared across the main road",Road Damage
+"The asphalt is breaking apart near the residential area",Road Damage
+"Cars are struggling to drive over the damaged road",Road Damage
+"There is a deep hole on the street",Road Damage
+"The road pavement has deteriorated significantly",Road Damage
+"Multiple potholes are causing problems for drivers",Road Damage
+"The road surface needs urgent repair",Road Damage
+"A section of the street has collapsed",Road Damage
+"The streetlights are not working at night",Street Lighting
+"Several lamps along the road have stopped working",Street Lighting
+"There is no lighting on this residential street",Street Lighting
+"The public lighting system has failed",Street Lighting
+"One of the street lamps is broken",Street Lighting
+"The lights near the park are completely out",Street Lighting
+"The streetlight keeps switching off",Street Lighting
+"Several dark areas have appeared because of broken lamps",Street Lighting
+"The road is too dark because the lights are not functioning",Street Lighting
+"Public lighting needs maintenance",Street Lighting
+"The traffic light is not changing from red",Traffic Signals
+"The traffic signal at the intersection is broken",Traffic Signals
+"Green lights are not appearing for vehicles",Traffic Signals
+"The pedestrian crossing signal is malfunctioning",Traffic Signals
+"The traffic lights are completely switched off",Traffic Signals
+"The intersection signal system is not operating correctly",Traffic Signals
+"The traffic light keeps showing incorrect signals",Traffic Signals
+"The pedestrian signal button does not work",Traffic Signals
+"Vehicles are confused because the traffic lights are broken",Traffic Signals
+"The traffic signal controller appears to have failed",Traffic Signals
+"A fallen tree is blocking the road",Road Obstructions
+"A vehicle has left construction materials on the street",Road Obstructions
+"There is debris blocking the main road",Road Obstructions
+"An object is preventing cars from passing",Road Obstructions
+"Construction equipment is obstructing the street",Road Obstructions
+"A large branch is lying across the road",Road Obstructions
+"The road is blocked by abandoned materials",Road Obstructions
+"There are barriers preventing normal traffic movement",Road Obstructions
+"A damaged sign has fallen onto the roadway",Road Obstructions
+"Building materials are blocking the public street",Road Obstructions
+"Garbage containers are overflowing near the apartments",Waste Management
+"Trash has accumulated around the public bins",Waste Management
+"Household waste has not been collected",Waste Management
+"The rubbish bins are completely full",Waste Management
+"There is a large amount of garbage near the park",Waste Management
+"Waste is scattered around the residential area",Waste Management
+"The garbage collection service has missed several days",Waste Management
+"Trash is accumulating beside the road",Waste Management
+"The public waste containers need emptying",Waste Management
+"Illegal dumping has occurred near the neighborhood",Waste Management
+"A public bench has been severely damaged",Public Infrastructure
+"The bus stop shelter has a broken roof",Public Infrastructure
+"The public staircase is damaged",Public Infrastructure
+"A section of the public fence has collapsed",Public Infrastructure
+"The playground equipment is broken",Public Infrastructure
+"The pavement tiles near the public building are damaged",Public Infrastructure
+"A public facility needs structural repairs",Public Infrastructure
+"The park's drinking fountain is not working",Public Infrastructure
+"The handrail on the public stairs is loose",Public Infrastructure
+"The roof of the public shelter has been damaged",Public Infrastructure
+"There are several potholes along the residential road",Road Damage
+"The asphalt has broken apart near the bus stop",Road Damage
+"A deep pothole is damaging passing vehicles",Road Damage
+"The road surface is uneven and requires repair",Road Damage
+"Large cracks are visible across the street",Road Damage
+"The pavement has started collapsing near the junction",Road Damage
+"Several sections of asphalt are missing from the road",Road Damage
+"The road is covered with cracks and damaged patches",Road Damage
+"A large hole has formed in the middle of the street",Road Damage
+"The road surface is severely worn out",Road Damage
+"Drivers are having difficulty because of multiple potholes",Road Damage
+"The asphalt near the intersection is breaking apart",Road Damage
+"The road has developed deep cracks",Road Damage
+"Part of the street pavement has sunk",Road Damage
+"The road surface is damaged after recent rainfall",Road Damage
+"Several potholes have appeared near the school",Road Damage
+"The asphalt is deteriorating along the main avenue",Road Damage
+"A damaged section of road needs resurfacing",Road Damage
+"The street has uneven pavement and dangerous holes",Road Damage
+"The road surface is cracked near the pedestrian crossing",Road Damage
+"Large pieces of asphalt have broken away",Road Damage
+"The pavement is damaged along the entire street",Road Damage
+"A deep depression has formed in the road surface",Road Damage
+"The road has multiple damaged patches",Road Damage
+"The asphalt is peeling away near the roadside",Road Damage
+"Several cracks are spreading across the roadway",Road Damage
+"The street pavement has become rough and uneven",Road Damage
+"A pothole has appeared near the traffic intersection",Road Damage
+"The road needs urgent asphalt repairs",Road Damage
+"Parts of the road surface are crumbling",Road Damage
+"The pavement is damaged near the residential buildings",Road Damage
+"Vehicles are swerving to avoid broken sections of road",Road Damage
+"The asphalt has developed a network of cracks",Road Damage
+"A large section of the road is badly deteriorated",Road Damage
+"The road surface has numerous small potholes",Road Damage
+"The pavement near the market is damaged",Road Damage
+"The street has deep wheel ruts and damaged asphalt",Road Damage
+"The road surface is breaking down near the bridge",Road Damage
+"Several holes have formed along the right side of the road",Road Damage
+"The asphalt is damaged around the drainage area",Road Damage
+"The road has become uneven after construction work",Road Damage
+"A section of pavement has cracked and sunk",Road Damage
+"The street surface is badly damaged near the hospital",Road Damage
+"Several potholes are creating problems for motorists",Road Damage
+"The road needs resurfacing because the asphalt is worn out",Road Damage
+"The pavement has large cracks near the roadside",Road Damage
+"The asphalt layer is breaking up in several places",Road Damage
+"A damaged road section is making traffic uncomfortable",Road Damage
+"The road surface has collapsed around a small area",Road Damage
+"The street contains several deep holes",Road Damage
+"The asphalt near the residential complex is damaged",Road Damage
+"Cracks have developed along the road after construction",Road Damage
+"The pavement is uneven near the public transport stop",Road Damage
+"Several damaged patches are visible on the avenue",Road Damage
+"The road has deteriorated and needs maintenance",Road Damage
+"A pothole is located directly in the driving lane",Road Damage
+"The street surface has broken into several pieces",Road Damage
+"The road is damaged near the railway crossing",Road Damage
+"An uneven road surface is affecting vehicle movement",Road Damage
+"The asphalt is cracked around the intersection",Road Damage
+"The road has a large damaged area near the entrance",Road Damage
+"Multiple sections of pavement require reconstruction",Road Damage
+"The road surface has become rough because of deterioration",Road Damage
+"A deep crack runs across the entire street",Road Damage
+"The pavement is damaged near the shopping centre",Road Damage
+"Several potholes have formed along the avenue",Road Damage
+"The asphalt is missing from part of the roadway",Road Damage
+"The road has visible structural damage",Road Damage
+"Broken asphalt is scattered across the street",Road Damage
+"The pavement near the park entrance is damaged",Road Damage
+"The street has developed several uneven areas",Road Damage
+"A large pothole is located close to the junction",Road Damage
+"The road surface is damaged near the residential entrance",Road Damage
+"The asphalt is cracked and deteriorating rapidly",Road Damage
+"Several holes are visible in the road pavement",Road Damage
+"The street needs repairs because of damaged asphalt",Road Damage
+"The road surface has deteriorated near the drainage channel",Road Damage
+"A section of the avenue has severe pavement damage",Road Damage
+"The asphalt has broken down near the roadside parking area",Road Damage
+"The pavement is cracked in front of the public building",Road Damage
+"Vehicles are struggling to pass over the damaged street",Road Damage
+"The road has several deep surface defects",Road Damage
+"A pothole has appeared in the middle of the avenue",Road Damage
+"The asphalt surface is badly cracked near the crossing",Road Damage
+"Parts of the street have lost their asphalt covering",Road Damage
+"The road pavement requires immediate maintenance",Road Damage
+"Several sections of the roadway are damaged and uneven",Road Damage
+"The street surface is deteriorating around the bus station",Road Damage
+"A large crack has appeared near the road shoulder",Road Damage
+"The pavement has broken apart close to the intersection",Road Damage
+"There are no working streetlights along the residential avenue",Street Lighting
+"The lamp post near the school has stopped working",Street Lighting
+"Several street lamps remain switched off after sunset",Street Lighting
+"The road lighting system is not functioning",Street Lighting
+"The streetlight near the bus station is flickering",Street Lighting
+"Darkness covers the pedestrian walkway because lamps are broken",Street Lighting
+"The public lighting pole is damaged and does not illuminate",Street Lighting
+"Several lamps along the park road are out of service",Street Lighting
+"The streetlight outside the apartment building is broken",Street Lighting
+"The avenue has no functioning night lighting",Street Lighting
+"The lamp near the pedestrian crossing does not turn on",Street Lighting
+"Public streetlights are malfunctioning throughout the block",Street Lighting
+"The road becomes completely dark after sunset",Street Lighting
+"A street lamp has stopped illuminating the sidewalk",Street Lighting
+"The lighting near the residential entrance is not working",Street Lighting
+"The lamp posts along the street need maintenance",Street Lighting
+"Several public lights have failed in the neighbourhood",Street Lighting
+"The street lighting near the market is insufficient because lamps are broken",Street Lighting
+"A damaged lamp is leaving the pavement unlit",Street Lighting
+"The streetlight keeps blinking during the night",Street Lighting
+"The lights along the main road have stopped working",Street Lighting
+"The pedestrian area has several nonfunctional lamps",Street Lighting
+"The street lamp near the hospital entrance is out",Street Lighting
+"The public lighting system switches off unexpectedly",Street Lighting
+"The road is poorly illuminated because several lamps are broken",Street Lighting
+"A lamp post is leaning and its light is not working",Street Lighting
+"The lights near the public garden are not functioning",Street Lighting
+"The residential street has several dark sections due to failed lamps",Street Lighting
+"The streetlight above the sidewalk is completely dark",Street Lighting
+"The lighting pole near the intersection needs repair",Street Lighting
+"The lamps along the avenue are not turning on at night",Street Lighting
+"The public walkway has no functioning lights",Street Lighting
+"The streetlight outside the library has failed",Street Lighting
+"Several lamps have stopped working near the apartment complex",Street Lighting
+"The road lighting is interrupted along this section",Street Lighting
+"The streetlight is producing irregular flashes",Street Lighting
+"The lamp near the playground is not illuminating",Street Lighting
+"Public lighting is unavailable on the residential road",Street Lighting
+"The street lamps are working intermittently",Street Lighting
+"The lighting system near the parking area has failed",Street Lighting
+"The streetlight pole has a damaged electrical connection",Street Lighting
+"Several lights are missing along the pedestrian path",Street Lighting
+"The road near the public building is completely unlit",Street Lighting
+"The lamp post beside the road is not operating",Street Lighting
+"The street lighting needs repair near the central square",Street Lighting
+"The lamps near the bus stop have stopped illuminating",Street Lighting
+"The public lights are not switching on automatically",Street Lighting
+"The streetlight near the shopping centre is broken",Street Lighting
+"The sidewalk lighting is unavailable after dark",Street Lighting
+"The lamp posts along the park entrance are not working",Street Lighting
+"The street lighting system has stopped operating in this area",Street Lighting
+"A street lamp is damaged near the residential complex",Street Lighting
+"The pedestrian crossing area is too dark because its lamps are out",Street Lighting
+"The public lighting pole has stopped functioning",Street Lighting
+"Several streetlights are flickering along the boulevard",Street Lighting
+"The lamp outside the school entrance is not working",Street Lighting
+"The road has no working lamps near the railway crossing",Street Lighting
+"The street lighting near the playground requires maintenance",Street Lighting
+"The public lamps are not illuminating the parking entrance",Street Lighting
+"A broken streetlight is leaving the road in darkness",Street Lighting
+"The lamps along the residential street have failed",Street Lighting
+"The lighting system near the park is malfunctioning",Street Lighting
+"The streetlight near the pedestrian bridge is switched off",Street Lighting
+"The public road lighting has become unreliable",Street Lighting
+"The lamp post beside the market is not working",Street Lighting
+"Several lights are out along the central avenue",Street Lighting
+"The streetlight is unable to stay switched on",Street Lighting
+"The pedestrian walkway has broken lighting fixtures",Street Lighting
+"The road lamps near the bus terminal are not operating",Street Lighting
+"The street lighting is missing along this road section",Street Lighting
+"The lamp near the hospital parking area is out of service",Street Lighting
+"The streetlights are not illuminating the residential courtyard",Street Lighting
+"The public lighting near the intersection has stopped working",Street Lighting
+"The lamp post has a broken light fixture",Street Lighting
+"The street lamps are producing very weak illumination because of a fault",Street Lighting
+"The lighting near the public transport stop is broken",Street Lighting
+"The road becomes dark because its streetlights are disconnected",Street Lighting
+"The streetlight near the sports facility is not working",Street Lighting
+"The public lamps along the sidewalk need replacement",Street Lighting
+"The lighting pole near the main entrance is out of service",Street Lighting
+"Several street lamps are not responding to the automatic timer",Street Lighting
+"The avenue lighting system has failed in multiple locations",Street Lighting
+"The streetlight near the residential parking area is broken",Street Lighting
+"The public garden pathway has nonfunctional lamps",Street Lighting
+"The street lighting is interrupted near the school building",Street Lighting
+"The lamp posts near the central market are not illuminating",Street Lighting
+"The road lighting system requires electrical maintenance",Street Lighting
+"The streetlights near the apartment entrance are switched off",Street Lighting
+"The lamp along the pedestrian route is malfunctioning",Street Lighting
+"The public lighting fixtures are damaged along the avenue",Street Lighting
+"The street lamp outside the community centre is not working",Street Lighting
+"The streetlights near the intersection remain dark at night",Street Lighting
+
+"The traffic signal at the main junction is completely broken",Traffic Signals
+"The pedestrian crossing light does not change to green",Traffic Signals
+"Vehicles are waiting because the traffic signal is malfunctioning",Traffic Signals
+"The traffic lights at the crossroads are not operating",Traffic Signals
+"The pedestrian signal remains red even when crossing is permitted",Traffic Signals
+"The intersection traffic controller is not responding",Traffic Signals
+"The traffic light changes colors incorrectly",Traffic Signals
+"The green signal is not appearing at the junction",Traffic Signals
+"The traffic signal near the school is switched off",Traffic Signals
+"The pedestrian crossing countdown display is broken",Traffic Signals
+"The traffic lights are stuck on green",Traffic Signals
+"The traffic signal near the hospital is malfunctioning",Traffic Signals
+"The intersection has no functioning traffic lights",Traffic Signals
+"The pedestrian crossing signal does not respond to the button",Traffic Signals
+"The traffic signal is displaying conflicting indications",Traffic Signals
+"The traffic lights are switching off unexpectedly",Traffic Signals
+"The red light is not appearing at the intersection",Traffic Signals
+"The traffic signal controller needs repair",Traffic Signals
+"The pedestrian crossing light is completely dark",Traffic Signals
+"The traffic lights near the shopping centre are broken",Traffic Signals
+"The intersection signal is not changing according to its cycle",Traffic Signals
+"The traffic light remains red for an unusually long time",Traffic Signals
+"The pedestrian signal is showing an incorrect countdown",Traffic Signals
+"The traffic lights are flashing continuously",Traffic Signals
+"The signal system at the crossroads has stopped working",Traffic Signals
+"The traffic light near the bus station is malfunctioning",Traffic Signals
+"The pedestrian signal does not illuminate",Traffic Signals
+"The traffic lights are not coordinating properly at the junction",Traffic Signals
+"The signal at the main avenue intersection is damaged",Traffic Signals
+"The traffic light is showing no indication to drivers",Traffic Signals
+"The pedestrian crossing signal is stuck on red",Traffic Signals
+"The traffic lights near the residential area are out of service",Traffic Signals
+"The traffic signal is changing too quickly",Traffic Signals
+"The intersection has a faulty pedestrian crossing light",Traffic Signals
+"The traffic light is not responding to approaching vehicles",Traffic Signals
+"The signal pole near the junction is damaged",Traffic Signals
+"The traffic lights are showing the wrong sequence",Traffic Signals
+"The pedestrian crossing indicator has stopped working",Traffic Signals
+"The traffic signal at the roundabout is malfunctioning",Traffic Signals
+"The traffic light is blinking when it should remain steady",Traffic Signals
+"The intersection signal is not displaying the green phase",Traffic Signals
+"The traffic signal near the market is completely inactive",Traffic Signals
+"The pedestrian crossing lights are not functioning correctly",Traffic Signals
+"The traffic light remains green in every direction",Traffic Signals
+"The signal system at the junction requires maintenance",Traffic Signals
+"The traffic lights are not responding to the control system",Traffic Signals
+"The pedestrian crossing display has gone blank",Traffic Signals
+"The traffic signal is stuck and does not change",Traffic Signals
+"The lights at the intersection are operating irregularly",Traffic Signals
+"The traffic light near the park entrance is broken",Traffic Signals
+"The pedestrian crossing signal is not illuminating at night",Traffic Signals
+"The traffic lights at the central crossroads have failed",Traffic Signals
+"The traffic signal is displaying a flashing red indication",Traffic Signals
+"The intersection's traffic lights are not synchronized",Traffic Signals
+"The pedestrian signal button is not activating the crossing light",Traffic Signals
+"The traffic signal housing is damaged",Traffic Signals
+"The green light at the junction never appears",Traffic Signals
+"The traffic lights are malfunctioning during peak hours",Traffic Signals
+"The traffic signal near the university has stopped working",Traffic Signals
+"The pedestrian crossing light remains blank",Traffic Signals
+"The traffic signal is not changing from green to red",Traffic Signals
+"The traffic controller at the intersection has failed",Traffic Signals
+"The traffic lights are operating without a clear sequence",Traffic Signals
+"The signal near the bus terminal is not functioning",Traffic Signals
+"The pedestrian signal display is damaged",Traffic Signals
+"The traffic lights are completely unresponsive",Traffic Signals
+"The traffic signal at the avenue crossing is broken",Traffic Signals
+"The traffic lights near the stadium are not working",Traffic Signals
+"The pedestrian crossing indicator is stuck",Traffic Signals
+"The intersection signal is showing incorrect colors",Traffic Signals
+"The traffic signal does not respond to its programmed timing",Traffic Signals
+"The traffic lights are failing intermittently",Traffic Signals
+"The pedestrian crossing signal has a faulty display",Traffic Signals
+"The traffic light is not providing a green indication",Traffic Signals
+"The junction has a broken traffic signal system",Traffic Signals
+"The traffic lights near the public building are inactive",Traffic Signals
+"The signal at the road crossing is not working properly",Traffic Signals
+"The pedestrian crossing lights have stopped responding",Traffic Signals
+"The traffic signal is malfunctioning at the main intersection",Traffic Signals
+"The traffic light near the residential entrance is broken",Traffic Signals
+"The signal controller is causing irregular traffic light changes",Traffic Signals
+"The traffic lights have stopped working after a power interruption",Traffic Signals
+"The pedestrian crossing signal is not displaying the correct indication",Traffic Signals
+"The intersection lights require technical maintenance",Traffic Signals
+"The traffic signal remains inactive throughout the day",Traffic Signals
+"The traffic lights are not functioning near the railway crossing",Traffic Signals
+"The pedestrian crossing signal near the park is broken",Traffic Signals
+
+"A fallen tree is obstructing the residential street",Road Obstructions
+"Construction materials are blocking the vehicle lane",Road Obstructions
+"A broken-down vehicle is obstructing the main road",Road Obstructions
+"Large branches are scattered across the roadway",Road Obstructions
+"Building materials have been left in the middle of the street",Road Obstructions
+"A fallen road sign is blocking the pedestrian path",Road Obstructions
+"An abandoned vehicle is obstructing the street",Road Obstructions
+"Construction barriers are preventing normal road access",Road Obstructions
+"Debris is covering part of the main avenue",Road Obstructions
+"A large object is blocking the entrance to the street",Road Obstructions
+"Several abandoned items are obstructing the sidewalk",Road Obstructions
+"A fallen utility pole is blocking the road",Road Obstructions
+"Construction waste has been dumped across the road",Road Obstructions
+"A damaged vehicle is blocking the traffic lane",Road Obstructions
+"Large stones are obstructing the residential road",Road Obstructions
+"A pile of sand is blocking access to the street",Road Obstructions
+"Metal materials have been left across the roadway",Road Obstructions
+"A fallen advertising board is blocking the pavement",Road Obstructions
+"Road access is blocked by construction equipment",Road Obstructions
+"An obstacle is preventing pedestrians from using the sidewalk",Road Obstructions
+"A fallen tree branch is blocking the pedestrian crossing",Road Obstructions
+"Building supplies are obstructing the public road",Road Obstructions
+"A damaged fence panel is lying across the street",Road Obstructions
+"An abandoned trailer is blocking the road",Road Obstructions
+"Several large objects are obstructing the traffic lane",Road Obstructions
+"Construction machinery is occupying the public roadway",Road Obstructions
+"A pile of rubble is blocking the street entrance",Road Obstructions
+"A fallen electrical cabinet is obstructing the sidewalk",Road Obstructions
+"Road access is restricted by misplaced construction materials",Road Obstructions
+"A damaged bus is blocking part of the avenue",Road Obstructions
+"Branches from a fallen tree are covering the road",Road Obstructions
+"A temporary structure is blocking the pedestrian route",Road Obstructions
+"An abandoned container is obstructing the street",Road Obstructions
+"Construction waste is blocking the sidewalk",Road Obstructions
+"A large rock is preventing vehicles from passing",Road Obstructions
+"Several road barriers have been left in the wrong place",Road Obstructions
+"A fallen signpost is obstructing the roadway",Road Obstructions
+"An object is blocking the entrance to the public parking area",Road Obstructions
+"Building debris is scattered across the residential street",Road Obstructions
+"A damaged street fixture is blocking pedestrian access",Road Obstructions
+"A delivery truck is obstructing the road entrance",Road Obstructions
+"Construction pipes are blocking part of the street",Road Obstructions
+"A pile of discarded materials is occupying the sidewalk",Road Obstructions
+"A fallen branch is obstructing the vehicle lane",Road Obstructions
+"An abandoned construction container is blocking road access",Road Obstructions
+"Several concrete blocks are obstructing the roadway",Road Obstructions
+"A damaged traffic sign has fallen across the sidewalk",Road Obstructions
+"A parked vehicle is blocking the public access road",Road Obstructions
+"Loose construction materials are scattered across the avenue",Road Obstructions
+"A fallen tree is preventing access to the park road",Road Obstructions
+"The street entrance is blocked by construction equipment",Road Obstructions
+"A pile of bricks is obstructing pedestrian movement",Road Obstructions
+"Debris from a damaged structure is blocking the road",Road Obstructions
+"A large branch is covering the residential sidewalk",Road Obstructions
+"A broken street barrier is obstructing the roadway",Road Obstructions
+"An abandoned object is blocking the pedestrian crossing",Road Obstructions
+"Construction machinery is blocking the entrance to the building",Road Obstructions
+"A pile of gravel is obstructing the public street",Road Obstructions
+"A fallen billboard is blocking the roadside walkway",Road Obstructions
+"Road access is blocked by an unattended vehicle",Road Obstructions
+"An overturned container is obstructing the road",Road Obstructions
+"A damaged road barrier is lying across the street",Road Obstructions
+"Discarded construction materials are blocking the bus stop entrance",Road Obstructions
+"A fallen branch is obstructing the bicycle path",Road Obstructions
+"Several large stones are blocking the road shoulder",Road Obstructions
+"An abandoned object is preventing access to the sidewalk",Road Obstructions
+"Construction equipment has been left across the traffic lane",Road Obstructions
+"A fallen sign is blocking access to the public building",Road Obstructions
+"A damaged vehicle is obstructing the residential entrance",Road Obstructions
+"A pile of waste materials is blocking the street",Road Obstructions
+"A fallen tree is blocking the road near the intersection",Road Obstructions
+"Concrete pipes are obstructing the main avenue",Road Obstructions
+"An unattended trailer is blocking the pedestrian route",Road Obstructions
+"Several branches are blocking access to the parking area",Road Obstructions
+"A construction vehicle is blocking the public road",Road Obstructions
+"An object is obstructing the road near the hospital",Road Obstructions
+"Broken furniture has been left across the sidewalk",Road Obstructions
+"An abandoned vehicle is preventing access to the street",Road Obstructions
+"A fallen streetlight pole is obstructing the roadway",Road Obstructions
+"Building materials are blocking the road near the school",Road Obstructions
+"A large pile of rubble is obstructing the intersection",Road Obstructions
+"Construction barriers are blocking the pedestrian crossing",Road Obstructions
+"A damaged road sign is obstructing the sidewalk",Road Obstructions
+"Discarded materials are blocking the residential entrance",Road Obstructions
+"A fallen branch is obstructing the road near the market",Road Obstructions
+"An abandoned container is blocking the parking entrance",Road Obstructions
+"Construction debris is preventing access to the main road",Road Obstructions
+"A damaged object is blocking the public walkway",Road Obstructions
+
+"The public garbage bins are overflowing",Waste Management
+"Household rubbish has accumulated beside the apartment building",Waste Management
+"The waste collection service has not visited the neighbourhood",Waste Management
+"Garbage containers are full and need emptying",Waste Management
+"Trash is scattered around the public waste collection point",Waste Management
+"Several rubbish bins are overflowing near the market",Waste Management
+"Waste has been left on the sidewalk for several days",Waste Management
+"The garbage collection schedule has not been followed",Waste Management
+"Household waste is accumulating near the residential entrance",Waste Management
+"The public trash containers are damaged and overflowing",Waste Management
+"Garbage has accumulated around the bus station",Waste Management
+"The waste bins near the park have not been emptied",Waste Management
+"Several bags of rubbish have been abandoned on the street",Waste Management
+"The public waste collection area is extremely dirty",Waste Management
+"Trash is spreading around the residential buildings",Waste Management
+"The garbage containers are full of uncollected waste",Waste Management
+"Rubbish has been dumped beside the public road",Waste Management
+"The waste collection point needs cleaning",Waste Management
+"Overflowing bins are attracting unwanted animals",Waste Management
+"Garbage has not been removed from the street for days",Waste Management
+"The public rubbish bins are overflowing near the school",Waste Management
+"Waste containers near the hospital require emptying",Waste Management
+"Uncollected household rubbish is piling up",Waste Management
+"The garbage collection area is covered with scattered waste",Waste Management
+"Several public bins are missing their lids and overflowing",Waste Management
+"Trash has accumulated around the shopping centre",Waste Management
+"The neighbourhood waste collection service is delayed",Waste Management
+"Rubbish bags have been left beside the apartment entrance",Waste Management
+"The public garbage containers are full and dirty",Waste Management
+"Waste is accumulating near the residential parking area",Waste Management
+"The garbage bins near the playground are overflowing",Waste Management
+"Uncollected waste is creating an unpleasant public area",Waste Management
+"The rubbish collection point has not been cleaned",Waste Management
+"Several waste containers are damaged and need replacement",Waste Management
+"Household garbage is scattered along the roadside",Waste Management
+"The public waste bins have not been emptied this week",Waste Management
+"Trash is piling up near the central market",Waste Management
+"The waste disposal area is filled with rubbish",Waste Management
+"Garbage has been left outside the designated containers",Waste Management
+"The rubbish containers are overflowing onto the pavement",Waste Management
+"The collection truck has missed the scheduled pickup",Waste Management
+"Public waste bins are broken and cannot be used properly",Waste Management
+"Discarded household items are accumulating near the buildings",Waste Management
+"The rubbish around the park entrance needs collection",Waste Management
+"Garbage bags are blocking access to the waste containers",Waste Management
+"The waste collection area is not being maintained",Waste Management
+"Several bins near the bus stop are completely full",Waste Management
+"Rubbish has accumulated behind the residential buildings",Waste Management
+"The public waste containers have not been serviced",Waste Management
+"Garbage is scattered around the neighbourhood collection point",Waste Management
+"The rubbish bins are overflowing near the sports facility",Waste Management
+"Household waste is being left beside the public containers",Waste Management
+"The waste disposal site is covered with scattered rubbish",Waste Management
+"Several garbage containers need urgent emptying",Waste Management
+"Uncollected trash is accumulating along the street",Waste Management
+"The waste bins near the school entrance are full",Waste Management
+"Garbage has been dumped beside the park fence",Waste Management
+"The public rubbish collection point is overflowing",Waste Management
+"The garbage service has not collected waste from this street",Waste Management
+"Several waste bags have been left beside the roadside",Waste Management
+"Trash containers near the apartment complex are damaged",Waste Management
+"The public waste area requires cleaning and maintenance",Waste Management
+"Rubbish is accumulating around the street bins",Waste Management
+"The garbage collection service is not operating regularly",Waste Management
+"The residential waste containers have become unusable",Waste Management
+"Uncollected rubbish is scattered around the public square",Waste Management
+"The garbage bins near the market entrance are full",Waste Management
+"Waste has been left outside the collection area",Waste Management
+"The rubbish containers need to be cleaned and emptied",Waste Management
+"Several days of household waste remain uncollected",Waste Management
+"The public waste collection point is overflowing with bags",Waste Management
+"Garbage has accumulated near the public transport terminal",Waste Management
+"The waste containers near the park are damaged",Waste Management
+"Trash is scattered around the residential courtyard",Waste Management
+"The collection point is surrounded by uncollected rubbish",Waste Management
+"Household waste is piling up beside the road",Waste Management
+"The public bins have not been emptied for several days",Waste Management
+"The waste management area needs urgent attention",Waste Management
+"Rubbish containers are overflowing near the community centre",Waste Management
+"The garbage collection service has missed multiple pickups",Waste Management
+"Discarded packaging is accumulating around the public bins",Waste Management
+"Several rubbish bags have been abandoned near the school",Waste Management
+"The public waste containers are full and overflowing",Waste Management
+"Garbage is accumulating beside the residential road",Waste Management
+"The waste collection area is dirty and poorly maintained",Waste Management
+"The rubbish bins near the playground need emptying",Waste Management
+"Uncollected waste is scattered around the shopping district",Waste Management
+"The garbage containers near the bus station are full",Waste Management
+"Household rubbish has been dumped beside the road",Waste Management
+
+"The public park bench has a broken seat",Public Infrastructure
+"The bus shelter roof is damaged and leaking",Public Infrastructure
+"The handrail on the public staircase is loose",Public Infrastructure
+"The playground slide is broken and unusable",Public Infrastructure
+"A section of the public fence has collapsed",Public Infrastructure
+"The drinking fountain in the park is not functioning",Public Infrastructure
+"The public staircase has damaged steps",Public Infrastructure
+"The roof of the community shelter requires repair",Public Infrastructure
+"The playground swing equipment is damaged",Public Infrastructure
+"The public seating area has broken benches",Public Infrastructure
+"The pavement tiles near the public building are damaged",Public Infrastructure
+"The bus stop shelter has a broken side panel",Public Infrastructure
+"The public park fountain is not working",Public Infrastructure
+"The handrail beside the public stairs is damaged",Public Infrastructure
+"The playground climbing structure is broken",Public Infrastructure
+"A public building entrance has damaged steps",Public Infrastructure
+"The community centre has a damaged exterior wall",Public Infrastructure
+"The public toilet facility is damaged",Public Infrastructure
+"The park's outdoor exercise equipment is broken",Public Infrastructure
+"The public bench near the bus stop is damaged",Public Infrastructure
+"The pedestrian bridge has a damaged handrail",Public Infrastructure
+"The public shelter has broken windows",Public Infrastructure
+"The playground surface has become damaged",Public Infrastructure
+"The public park gate is broken",Public Infrastructure
+"The bus stop seating structure needs repair",Public Infrastructure
+"The public staircase railing is unstable",Public Infrastructure
+"The community playground equipment requires maintenance",Public Infrastructure
+"The public building's entrance ramp is damaged",Public Infrastructure
+"The park's irrigation fountain is not functioning",Public Infrastructure
+"The public sports court fence is damaged",Public Infrastructure
+"The roof of the bus shelter has a missing panel",Public Infrastructure
+"The public monument area has damaged paving",Public Infrastructure
+"The park bench has become unusable because of structural damage",Public Infrastructure
+"The public pedestrian stairs have cracked steps",Public Infrastructure
+"The outdoor fitness equipment in the park is broken",Public Infrastructure
+"The public facility's entrance door is damaged",Public Infrastructure
+"The playground seesaw is no longer usable",Public Infrastructure
+"The public garden fence has a damaged section",Public Infrastructure
+"The bus shelter structure is deteriorating",Public Infrastructure
+"The public drinking water fountain has stopped working",Public Infrastructure
+"The community building has damaged exterior stairs",Public Infrastructure
+"The park's public seating needs replacement",Public Infrastructure
+"The pedestrian ramp near the public building is cracked",Public Infrastructure
+"The public sports ground has a damaged fence",Public Infrastructure
+"The playground equipment is missing several parts",Public Infrastructure
+"The public shelter has a damaged support structure",Public Infrastructure
+"The handrail at the park entrance is broken",Public Infrastructure
+"The public staircase has a damaged landing",Public Infrastructure
+"The outdoor public exercise station is out of service",Public Infrastructure
+"The bus stop canopy has structural damage",Public Infrastructure
+"The public garden pathway has broken paving tiles",Public Infrastructure
+"The park's drinking fountain has a damaged tap",Public Infrastructure
+"The public bench has a broken backrest",Public Infrastructure
+"The playground safety surface is damaged",Public Infrastructure
+"The public building's exterior staircase needs repair",Public Infrastructure
+"The community centre entrance ramp is cracked",Public Infrastructure
+"The public park fence has collapsed near the entrance",Public Infrastructure
+"The bus stop shelter has damaged seating",Public Infrastructure
+"The public playground climbing frame is damaged",Public Infrastructure
+"The public staircase handrail has come loose",Public Infrastructure
+"The outdoor sports equipment needs maintenance",Public Infrastructure
+"The public fountain structure has visible damage",Public Infrastructure
+"The park's pedestrian bridge has a damaged surface",Public Infrastructure
+"The public seating area has several broken benches",Public Infrastructure
+"The shelter near the public transport stop needs repairs",Public Infrastructure
+"The public building has damaged exterior paving",Public Infrastructure
+"The playground swing has a broken support",Public Infrastructure
+"The public garden gate cannot close properly",Public Infrastructure
+"The public staircase has loose and damaged tiles",Public Infrastructure
+"The bus shelter roof panel is broken",Public Infrastructure
+"The public park's exercise equipment is unusable",Public Infrastructure
+"The handrail on the pedestrian ramp is damaged",Public Infrastructure
+"The public sports court surface is damaged",Public Infrastructure
+"The public bench near the square requires replacement",Public Infrastructure
+"The playground structure has a damaged ladder",Public Infrastructure
+"The public shelter wall has developed cracks",Public Infrastructure
+"The community facility has a broken entrance ramp",Public Infrastructure
+"The park's public fountain is out of service",Public Infrastructure
+"The public fence near the playground is damaged",Public Infrastructure
+"The bus stop shelter has a damaged roof support",Public Infrastructure
+"The public stairs near the library have broken tiles",Public Infrastructure
+"The outdoor gym equipment in the public park is damaged",Public Infrastructure
+"The public building's handrail is loose",Public Infrastructure
+"The playground equipment requires structural repairs",Public Infrastructure
+"The public garden bench has a damaged seat",Public Infrastructure
+"The pedestrian bridge railing needs repair",Public Infrastructure
+"The public facility has a damaged access staircase",Public Infrastructure
+"The park shelter has a broken roof",Public Infrastructure
+"The public sports facility has damaged seating",Public Infrastructure
+"The public staircase has a broken handrail",Public Infrastructure
+"The bus stop structure has a damaged side wall",Public Infrastructure

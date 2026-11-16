@@ -9,6 +9,7 @@ use App\Models\Report;
 use App\Models\ReportActivity;
 use App\Models\ReportImage;
 use App\Models\ReportStatus;
+use App\Services\CityPulseAIService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -57,6 +58,18 @@ class ReportController extends Controller
                 'max:5120',
             ],
         ]);
+
+        // Ask the AI service for a category recommendation.
+        // The citizen's selected category remains the final category for now.
+        $aiSuggestion = null;
+
+        try {
+            $aiSuggestion = app(CityPulseAIService::class)
+                ->classifyReport($validated['description']);
+        } catch (\Throwable $exception) {
+            // AI availability must not prevent a citizen from submitting a report.
+            report($exception);
+        }
 
         $status = ReportStatus::where('slug', 'submitted')->firstOrFail();
 
@@ -132,9 +145,15 @@ class ReportController extends Controller
             throw $exception;
         }
 
-        return redirect()
+        $redirect = redirect()
             ->route('citizen.reports.index')
             ->with('success', 'Your report has been submitted successfully.');
+
+        if ($aiSuggestion !== null) {
+            $redirect->with('ai_suggestion', $aiSuggestion);
+        }
+
+        return $redirect;
     }
 
     public function show(Report $report): View
