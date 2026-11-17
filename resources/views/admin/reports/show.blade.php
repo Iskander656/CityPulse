@@ -62,6 +62,40 @@
                 </div>
 
                 <div class="card bg-black border-secondary text-light mb-4">
+                    <div class="card-header border-secondary py-3">
+                        <h5 class="mb-0">🤖 CityPulse AI Analysis</h5>
+                    </div>
+
+                    <div class="card-body">
+                        @if ($report->ai_suggested_category !== null)
+                            <p class="text-secondary mb-1">Citizen-selected category</p>
+                            <p>{{ $report->category->name }}</p>
+
+                            <p class="text-secondary mb-1">AI-suggested category</p>
+                            <p>{{ $report->ai_suggested_category }}</p>
+
+                            <p class="text-secondary mb-1">Model confidence score</p>
+                            <p>{{ number_format((float) $report->ai_confidence * 100, 2) }}%</p>
+
+                            @if ($report->category->name === $report->ai_suggested_category)
+                                <span class="badge bg-success">AI recommendation matches citizen category</span>
+                            @else
+                                <span class="badge bg-warning text-dark">AI recommendation differs — review suggested</span>
+                            @endif
+                        @else
+                            <p class="text-secondary mb-0">
+                                AI analysis is not available for this report.
+                            </p>
+                        @endif
+
+                        <hr class="border-secondary">
+                        <small class="text-secondary">
+                            AI provides a recommendation only. The citizen-selected category remains unchanged unless an administrator reviews and updates it.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="card bg-black border-secondary text-light mb-4">
 
                     <div class="card-header border-secondary">
                         <h5 class="mb-0">Report Images</h5>

@@ -103,6 +103,7 @@ class ReportController extends Controller
                 $request,
                 $status,
                 $department,
+                $aiSuggestion,
                 &$storedFiles
             ) {
                 $report = Report::create([
@@ -115,6 +116,8 @@ class ReportController extends Controller
                     'latitude' => $validated['latitude'],
                     'longitude' => $validated['longitude'],
                     'address' => $validated['address'] ?? null,
+                    'ai_suggested_category' => $aiSuggestion['category'] ?? null,
+                    'ai_confidence' => $aiSuggestion['confidence'] ?? null,
                 ]);
 
                 foreach ($request->file('images', []) as $image) {

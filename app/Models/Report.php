@@ -29,6 +29,8 @@ class Report extends Model
         'latitude',
         'longitude',
         'address',
+        'ai_suggested_category',
+        'ai_confidence',
     ];
 
     public function user()
@@ -66,7 +68,7 @@ class Report extends Model
         return $this->hasMany(ReportAssignment::class);
     }
 
-    public function activities() 
+    public function activities()
     {
         return $this->hasMany(ReportActivity::class);
     }
