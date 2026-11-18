@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityPulse | Map System</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <link rel="stylesheet" href="/css/maps/citypulse-map.css">
+</head>
+
+<body>
+
+    <main class="map-interface">
+
+        <header class="map-header">
+            <div class="brand">
+                <div class="brand-icon">C</div>
+                <div>
+                    <h1>CityPulse</h1>
+                    <span>LOCATION INTELLIGENCE</span>
+                </div>
+            </div>
+
+            <div class="header-status">
+                <span class="status-dot"></span>
+                MAP SYSTEM ONLINE
+            </div>
+        </header>
+
+        <section class="map-workspace">
+
+            <aside class="map-sidebar">
+
+                <div class="sidebar-heading">
+                    <span class="eyebrow">LOCATION SERVICES</span>
+                    <h2>Explore the city.</h2>
+                    <p>Find a location or select a point directly on the map.</p>
+                </div>
+
+                <div class="search-container">
+                    <label for="map-search">SEARCH LOCATION</label>
+
+                    <div class="search-box">
+                        <input type="text" id="map-search" placeholder="Street, building or area...">
+                        <button id="search-button" aria-label="Search">
+                            →
+                        </button>
+                    </div>
+
+                    <div id="search-results"></div>
+                </div>
+
+                <div class="sidebar-actions">
+                    <button id="locate-button" class="action-primary">
+                        ◎ &nbsp; Use my current location
+                    </button>
+
+                    <button id="reset-button" class="action-secondary">
+                        ↺ &nbsp; Reset map
+                    </button>
+                </div>
+
+                <div class="location-card">
+                    <span class="eyebrow">SELECTED LOCATION</span>
+
+                    <div class="coordinates">
+                        <div>
+                            <span>LATITUDE</span>
+                            <strong id="latitude">Not selected</strong>
+                        </div>
+
+                        <div>
+                            <span>LONGITUDE</span>
+                            <strong id="longitude">Not selected</strong>
+                        </div>
+                    </div>
+                    <div class="selected-address">
+                        <span>ADDRESS</span>
+                        <strong id="selected-address">No address selected</strong>
+                    </div>
+
+                    <div class="selection-status" id="selection-status">
+                        Click anywhere on the map to select a location.
+                    </div>
+                </div>
+
+                <div class="sidebar-footer">
+                    CITYPULSE MAP INFRASTRUCTURE<br>
+                    VERSION 1.0
+                </div>
+
+            </aside>
+
+            <section class="map-container">
+                <div id="city-map"></div>
+
+                <div class="map-label">
+                    <span class="status-dot"></span>
+                    LIVE MAP VIEW
+                </div>
+
+                <div class="map-instructions">
+                    Click the map to select a location
+                </div>
+            </section>
+
+        </section>
+
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/js/maps/citypulse-map.js"></script>
+
+</body>
+
+</html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,11 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin/dashboard.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/leaflet.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/maps/citypulse-map.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/reports/report-form.css') }}">
     @stack('styles')
 </head>
+
 <body class="bg-dark text-light">
     <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary">
         <div class="container">
@@ -26,8 +30,10 @@
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/chart.umd.min.js') }}"></script>
     <script src="{{ asset('assets/js/leaflet.js') }}"></script>
+    <script src="{{ asset('js/maps/citypulse-map.js') }}"></script>
     @stack('scripts')
 
-    
+
 </body>
+
 </html>
