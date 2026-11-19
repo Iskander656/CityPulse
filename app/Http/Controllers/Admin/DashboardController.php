@@ -69,7 +69,7 @@ class DashboardController extends Controller
             ->orderByDesc('total_reports')
             ->take(5)
             ->get();
-            
+
         // Monthly reporting trends (last 6 months)
         $monthlyReportTrends = [];
 
@@ -115,5 +115,26 @@ class DashboardController extends Controller
             'monthlyReportTrends',
             'recentReports'
         ));
+    }
+
+    public function map(): View
+    {
+        $reports = Report::with(['category', 'status'])
+            ->whereNotNull('latitude')
+            ->whereNotNull('longitude')
+            ->whereHas('status', function ($query) {
+                $query->where('slug', '!=', 'resolved');
+            })
+            ->orderByRaw("CASE
+                WHEN (SELECT slug FROM report_statuses WHERE report_statuses.id = reports.status_id) = 'submitted' THEN 1
+                WHEN (SELECT slug FROM report_statuses WHERE report_statuses.id = reports.status_id) = 'under-review' THEN 2
+                WHEN (SELECT slug FROM report_statuses WHERE report_statuses.id = reports.status_id) = 'in-progress' THEN 3
+                WHEN (SELECT slug FROM report_statuses WHERE report_statuses.id = reports.status_id) = 'rejected' THEN 4
+                ELSE 5
+            END")
+            ->latest('created_at')
+            ->get();
+
+        return view('admin.map', compact('reports'));
     }
 }

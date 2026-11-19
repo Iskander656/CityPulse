@@ -102,5 +102,7 @@ Route::middleware('auth')->group(function () {
 
             Route::patch('/reports/{report}/assignment', [AdminReportController::class, 'updateAssignment'])
                 ->name('reports.assignment.update');
+            Route::get('/map', [AdminDashboard::class, 'map'])
+                ->name('map');
         });
 });
