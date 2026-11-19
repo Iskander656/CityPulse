@@ -1,0 +1,385 @@
+/* =========================================
+   CITYPULSE — OFFICER REPORTS
+========================================= */
+
+.officer-reports-page {
+    min-height: 100vh;
+    padding: 42px 0 55px;
+    background:
+        radial-gradient(
+            circle at 12% 5%,
+            rgba(37, 99, 235, 0.12),
+            transparent 30%
+        ),
+        linear-gradient(145deg, #080f1d 0%, #0b1424 55%, #0a1220 100%);
+    color: #e5edf8;
+}
+
+.officer-reports-container {
+    max-width: 1450px;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.officer-reports-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.officer-reports-eyebrow {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #60a5fa;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.officer-reports-header h1 {
+    margin: 0 0 9px;
+    color: #f8fafc;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.officer-reports-header p {
+    margin: 0;
+    color: #91a1b8;
+    font-size: 0.95rem;
+}
+
+.officer-reports-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 11px 17px;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 11px;
+    background: rgba(30, 41, 59, 0.65);
+    color: #dbeafe;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.officer-reports-back:hover {
+    border-color: rgba(96, 165, 250, 0.55);
+    background: rgba(37, 99, 235, 0.14);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   REPORTS PANEL
+========================================= */
+
+.officer-reports-panel {
+    overflow: hidden;
+    border: 1px solid rgba(148, 163, 184, 0.13);
+    border-radius: 18px;
+    background: linear-gradient(
+        145deg,
+        rgba(18, 30, 49, 0.98),
+        rgba(13, 23, 39, 0.98)
+    );
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+}
+
+.officer-reports-panel-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 25px 28px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.officer-reports-kicker {
+    display: block;
+    margin-bottom: 6px;
+    color: #60a5fa;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+}
+
+.officer-reports-panel-heading h2 {
+    margin: 0;
+    color: #f1f5f9;
+    font-size: 1.25rem;
+    font-weight: 750;
+}
+
+.officer-reports-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 13px;
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    border-radius: 9px;
+    background: rgba(37, 99, 235, 0.12);
+    color: #93c5fd;
+    font-size: 0.8rem;
+    font-weight: 750;
+    white-space: nowrap;
+}
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.officer-reports-empty {
+    padding: 75px 25px;
+    text-align: center;
+}
+
+.officer-reports-empty-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 66px;
+    height: 66px;
+    margin: 0 auto 20px;
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    border-radius: 20px;
+    background: rgba(37, 99, 235, 0.1);
+    color: #60a5fa;
+    font-size: 1.7rem;
+}
+
+.officer-reports-empty h3 {
+    margin-bottom: 9px;
+    color: #e2e8f0;
+    font-size: 1.15rem;
+    font-weight: 750;
+}
+
+.officer-reports-empty p {
+    margin: 0;
+    color: #8494aa;
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   TABLE
+========================================= */
+
+.officer-reports-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.officer-reports-table {
+    width: 100%;
+    margin: 0;
+    border-collapse: collapse;
+    color: #dbe5f2;
+    vertical-align: middle;
+}
+
+.officer-reports-table thead th {
+    padding: 16px 22px;
+    border: none;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.13);
+    background: rgba(15, 23, 42, 0.55);
+    color: #8294ad;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.officer-reports-table tbody td {
+    padding: 19px 22px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.09);
+    background: transparent;
+    color: #cbd5e1;
+    font-size: 0.88rem;
+    white-space: nowrap;
+}
+
+.officer-reports-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.officer-reports-table tbody tr:hover {
+    background: rgba(37, 99, 235, 0.055);
+}
+
+.officer-reports-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.officer-reports-title {
+    display: block;
+    max-width: 300px;
+    overflow: hidden;
+    color: #f1f5f9;
+    font-weight: 700;
+    text-overflow: ellipsis;
+}
+
+.officer-reports-id {
+    display: block;
+    margin-top: 5px;
+    color: #64748b;
+    font-size: 0.73rem;
+    font-weight: 600;
+}
+
+/* =========================================
+   STATUS
+========================================= */
+
+.officer-reports-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 11px;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 30px;
+    background: rgba(51, 65, 85, 0.25);
+    color: #cbd5e1;
+    font-size: 0.73rem;
+    font-weight: 750;
+}
+
+.officer-reports-status::before {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #94a3b8;
+    content: "";
+}
+
+/* =========================================
+   REVIEW BUTTON
+========================================= */
+
+.officer-reports-review {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 8px 14px;
+    border: 1px solid rgba(59, 130, 246, 0.28);
+    border-radius: 9px;
+    background: rgba(37, 99, 235, 0.13);
+    color: #93c5fd;
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.officer-reports-review:hover {
+    border-color: #3b82f6;
+    background: #2563eb;
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+    transform: translateY(-1px);
+}
+
+/* =========================================
+   PAGINATION
+========================================= */
+
+.officer-reports-pagination {
+    padding: 20px 25px;
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.officer-reports-pagination nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.officer-reports-pagination .pagination {
+    gap: 5px;
+    margin: 0;
+}
+
+.officer-reports-pagination .page-link {
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 8px !important;
+    background: rgba(30, 41, 59, 0.65);
+    color: #a9bad0;
+    font-size: 0.82rem;
+    box-shadow: none;
+}
+
+.officer-reports-pagination .page-link:hover {
+    border-color: rgba(59, 130, 246, 0.4);
+    background: rgba(37, 99, 235, 0.15);
+    color: #ffffff;
+}
+
+.officer-reports-pagination .page-item.active .page-link {
+    border-color: #2563eb;
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.officer-reports-pagination .page-item.disabled .page-link {
+    border-color: rgba(148, 163, 184, 0.08);
+    background: rgba(15, 23, 42, 0.5);
+    color: #526176;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+    .officer-reports-page {
+        padding: 28px 0 40px;
+    }
+
+    .officer-reports-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .officer-reports-back {
+        width: 100%;
+    }
+
+    .officer-reports-panel-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 21px;
+    }
+
+    .officer-reports-table thead th,
+    .officer-reports-table tbody td {
+        padding: 15px 17px;
+    }
+
+    .officer-reports-pagination {
+        padding: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .officer-reports-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .officer-reports-empty {
+        padding: 55px 18px;
+    }
+}

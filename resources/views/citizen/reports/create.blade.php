@@ -1,154 +1,204 @@
 @extends('layouts.app')
+
 @section('title', 'Submit Report')
+
 @section('content')
-<div class="container-fluid cp-report-page py-5 px-3 px-lg-4">
-    <div class="cp-report-shell mx-auto">
-        <div class="cp-report-heading mb-4">
-            <div>
-                <span class="cp-eyebrow">CIVICPULSE / CITIZEN PORTAL</span>
-                <h1 class="cp-report-title">Report an issue</h1>
-                <p class="cp-report-subtitle">Help improve your city. Tell us what happened and where it needs attention.</p>
-            </div>
-            <a href="{{ route('citizen.dashboard') }}" class="cp-back-link">← Back to dashboard</a>
-        </div>
 
-        @if ($errors->any())
-            <div class="alert alert-danger cp-form-alert">
-                <strong>Your report could not be submitted.</strong>
-                <ul class="mb-0 mt-2">
-                    @foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach
-                </ul>
-            </div>
-        @endif
-        @if (session('success'))
-            <div class="alert alert-success cp-form-alert">{{ session('success') }}</div>
-        @endif
+    @push('styles')
+        <link rel="stylesheet" href="{{ asset('css/citizen/reports/create.css') }}">
+    @endpush
 
-        <form method="POST" action="{{ route('citizen.reports.store') }}" enctype="multipart/form-data" class="cp-report-form">
-            @csrf
-            <div class="cp-form-main">
-                <section class="cp-form-card">
-                    <div class="cp-section-heading">
-                        <span class="cp-section-number">01</span>
-                        <div>
-                            <h2>Issue details</h2>
-                            <p>Give your report a clear title and explain the problem.</p>
-                        </div>
-                    </div>
+    <div class="citizen-report-create-page">
+        <div class="citizen-report-create-container">
 
-                    <div class="cp-field mb-4">
-                        <label for="report-title" class="form-label">Report title <span>*</span></label>
-                        <input id="report-title" type="text" name="title" class="form-control cp-input" value="{{ old('title') }}" placeholder="e.g. Damaged streetlight on Main Street" required>
-                    </div>
+            <header class="citizen-report-create-header">
+                <div class="citizen-report-create-heading">
+                    <span class="citizen-report-create-eyebrow">CITIZEN PORTAL / REPORT CENTER</span>
+                    <h1>Submit a Report</h1>
+                    <p>Help improve your city. Tell us what happened and where it needs attention.</p>
+                </div>
+                <a href="{{ route('citizen.dashboard') }}" class="citizen-report-create-back">
+                    <span aria-hidden="true">←</span>
+                    Back to Dashboard
+                </a>
+            </header>
 
-                    <div class="cp-field mb-4">
-                        <label for="report-category" class="form-label">Category <span>*</span></label>
-                        <select id="report-category" name="category_id" class="form-select cp-input" required>
-                            <option value="">Select the issue category</option>
-                            @foreach ($categories as $category)
-                                <option value="{{ $category->id }}" @selected(old('category_id') == $category->id)>{{ $category->name }}</option>
+            @if ($errors->any())
+                <div class="citizen-report-create-alert citizen-report-create-alert-error" role="alert">
+                    <span class="citizen-report-create-alert-icon" aria-hidden="true">!</span>
+                    <div>
+                        <strong>Your report could not be submitted.</strong>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
                             @endforeach
-                        </select>
+                        </ul>
                     </div>
+                </div>
+            @endif
 
-                    <div class="cp-field">
-                        <label for="report-description" class="form-label">Description <span>*</span></label>
-                        <textarea id="report-description" name="description" class="form-control cp-input" rows="6" placeholder="Describe what happened, how it affects the area, and any useful details..." required>{{ old('description') }}</textarea>
-                        <div class="cp-field-hint">Please be specific. Clear information helps the city respond faster.</div>
-                    </div>
-                </section>
+            @if (session('success'))
+                <div class="citizen-report-create-alert citizen-report-create-alert-success" role="status">
+                    <span class="citizen-report-create-alert-icon" aria-hidden="true">✓</span>
+                    <div>{{ session('success') }}</div>
+                </div>
+            @endif
 
-                <section class="cp-form-card">
-                    <div class="cp-section-heading">
-                        <span class="cp-section-number">02</span>
-                        <div>
-                            <h2>Issue location</h2>
-                            <p>Pinpoint where the problem is happening.</p>
+            <form method="POST" action="{{ route('citizen.reports.store') }}" enctype="multipart/form-data"
+                class="citizen-report-create-form">
+                @csrf
+
+                <div class="citizen-report-create-main">
+                    <section class="citizen-report-create-card">
+                        <div class="citizen-report-create-section-heading">
+                            <span class="citizen-report-create-step">01</span>
+                            <div>
+                                <span class="citizen-report-create-section-label">THE ISSUE</span>
+                                <h2>Issue Details</h2>
+                                <p>Give your report a clear title and explain the problem.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="cp-location-select-card">
-                        <div class="cp-location-icon">⌖</div>
-                        <div class="cp-location-select-copy">
-                            <strong>Choose the exact location</strong>
-                            <span id="location-summary" aria-live="polite">No location selected yet.</span>
+                        <div class="citizen-report-create-field">
+                            <label for="report-title">Report title <span>*</span></label>
+                            <input id="report-title" type="text" name="title" class="citizen-report-create-input"
+                                value="{{ old('title') }}" placeholder="e.g. Damaged streetlight on Main Street" required>
                         </div>
-                        <button type="button" id="open-location-picker" class="cp-map-button">Choose on map <span>↗</span></button>
-                    </div>
-                    <input type="hidden" name="latitude" id="latitude" value="{{ old('latitude') }}">
-                    <input type="hidden" name="longitude" id="longitude" value="{{ old('longitude') }}">
 
-                    <div class="cp-field mt-4">
-                        <label for="report-address" class="form-label">Address <span class="cp-optional">(optional)</span></label>
-                        <input id="report-address" type="text" name="address" class="form-control cp-input" value="{{ old('address') }}" placeholder="Street, building, or nearby landmark">
-                    </div>
-                </section>
-
-                <section class="cp-form-card">
-                    <div class="cp-section-heading">
-                        <span class="cp-section-number">03</span>
-                        <div>
-                            <h2>Supporting photos</h2>
-                            <p>Add images that help explain the issue.</p>
+                        <div class="citizen-report-create-field">
+                            <label for="report-category">Category <span>*</span></label>
+                            <select id="report-category" name="category_id" class="citizen-report-create-input" required>
+                                <option value="">Select the issue category</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}" @selected(old('category_id') == $category->id)>{{ $category->name }}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
+
+                        <div class="citizen-report-create-field citizen-report-create-field-last">
+                            <label for="report-description">Description <span>*</span></label>
+                            <textarea id="report-description" name="description" class="citizen-report-create-input citizen-report-create-textarea"
+                                rows="6" placeholder="Describe what happened, how it affects the area, and any useful details..." required>{{ old('description') }}</textarea>
+                            <span class="citizen-report-create-hint">Be specific. Clear information helps the city respond
+                                faster.</span>
+                        </div>
+                    </section>
+
+                    <section class="citizen-report-create-card">
+                        <div class="citizen-report-create-section-heading">
+                            <span class="citizen-report-create-step">02</span>
+                            <div>
+                                <span class="citizen-report-create-section-label">MAP LOCATION</span>
+                                <h2>Issue Location</h2>
+                                <p>Pinpoint where the problem is happening.</p>
+                            </div>
+                        </div>
+
+                        <div class="citizen-report-create-location-select">
+                            <span class="citizen-report-create-location-icon" aria-hidden="true">⌖</span>
+                            <div class="citizen-report-create-location-copy">
+                                <strong>Choose the exact location</strong>
+                                <span id="location-summary" aria-live="polite">No location selected yet.</span>
+                            </div>
+                            <button type="button" id="open-location-picker" class="citizen-report-create-map-button">Choose
+                                on map <span aria-hidden="true">↗</span></button>
+                        </div>
+
+                        <input type="hidden" name="latitude" id="latitude" value="{{ old('latitude') }}">
+                        <input type="hidden" name="longitude" id="longitude" value="{{ old('longitude') }}">
+
+                        <div class="citizen-report-create-field citizen-report-create-address-field">
+                            <label for="report-address">Address <span
+                                    class="citizen-report-create-optional">(optional)</span></label>
+                            <input id="report-address" type="text" name="address" class="citizen-report-create-input"
+                                value="{{ old('address') }}" placeholder="Street, building, or nearby landmark">
+                        </div>
+                    </section>
+
+                    <section class="citizen-report-create-card">
+                        <div class="citizen-report-create-section-heading">
+                            <span class="citizen-report-create-step">03</span>
+                            <div>
+                                <span class="citizen-report-create-section-label">VISUAL EVIDENCE</span>
+                                <h2>Supporting Photos</h2>
+                                <p>Add images that help explain the issue.</p>
+                            </div>
+                        </div>
+
+                        <label for="report-images" class="citizen-report-create-upload">
+                            <span class="citizen-report-create-upload-icon" aria-hidden="true">↑</span>
+                            <strong>Choose photos to upload</strong>
+                            <span>JPG, PNG or WEBP · Up to 5 images · 5 MB each</span>
+                            <input id="report-images" type="file" name="images[]"
+                                accept="image/jpeg,image/png,image/webp" multiple>
+                        </label>
+                    </section>
+                </div>
+
+                <aside class="citizen-report-create-sidebar">
+                    <div class="citizen-report-create-tips-card">
+                        <span class="citizen-report-create-section-label">BEFORE YOU SUBMIT</span>
+                        <h2>A helpful report makes a difference.</h2>
+                        <ul class="citizen-report-create-tips">
+                            <li><span aria-hidden="true">✓</span> Use a clear, specific title.</li>
+                            <li><span aria-hidden="true">✓</span> Include useful details.</li>
+                            <li><span aria-hidden="true">✓</span> Select the correct map location.</li>
+                            <li><span aria-hidden="true">✓</span> Add photos when possible.</li>
+                        </ul>
+                        <div class="citizen-report-create-sidebar-divider"></div>
+                        <p>Your report will be sent to the CityPulse team for review.</p>
                     </div>
-                    <label for="report-images" class="cp-upload-area">
-                        <span class="cp-upload-icon">↑</span>
-                        <strong>Choose photos to upload</strong>
-                        <span>JPG, PNG or WEBP · Up to 5 images · 5 MB each</span>
-                        <input id="report-images" type="file" name="images[]" accept="image/jpeg,image/png,image/webp" multiple>
-                    </label>
-                </section>
+
+                    <div class="citizen-report-create-actions">
+                        <button type="submit" class="citizen-report-create-submit">Submit Report <span
+                                aria-hidden="true">→</span></button>
+                        <a href="{{ route('citizen.dashboard') }}" class="citizen-report-create-cancel">Cancel and
+                            return</a>
+                    </div>
+                </aside>
+            </form>
+
+            <footer class="citizen-report-create-footer">
+                <span>CityPulse · Citizen Report Center</span>
+                <span>Your voice helps improve the city.</span>
+            </footer>
+        </div>
+    </div>
+
+    <div id="location-picker" class="citizen-report-create-modal" aria-hidden="true">
+        <div class="citizen-report-create-modal-header">
+            <div class="citizen-report-create-modal-title">
+                <strong>Select report location</strong>
+                <span>Search for a place, click the map, or drag the marker.</span>
             </div>
-
-            <aside class="cp-form-sidebar">
-                <div class="cp-sidebar-card">
-                    <span class="cp-sidebar-label">BEFORE YOU SUBMIT</span>
-                    <h3>A helpful report makes a difference.</h3>
-                    <ul class="cp-report-tips">
-                        <li><span>✓</span> Use a clear, specific title.</li>
-                        <li><span>✓</span> Include useful details.</li>
-                        <li><span>✓</span> Select the correct map location.</li>
-                        <li><span>✓</span> Add photos when possible.</li>
-                    </ul>
-                    <div class="cp-sidebar-divider"></div>
-                    <p class="cp-privacy-note">Your report will be sent to the CityPulse team for review.</p>
-                </div>
-                <div class="cp-form-actions">
-                    <button type="submit" class="cp-submit-button">Submit complaint <span>→</span></button>
-                    <a href="{{ route('citizen.dashboard') }}" class="cp-cancel-link">Cancel and return</a>
-                </div>
-            </aside>
-        </form>
-    </div>
-</div>
-
-<div id="location-picker" class="cp-location-modal" aria-hidden="true">
-    <div class="cp-location-header">
-        <div class="cp-location-title">
-            <strong>Select report location</strong>
-            <span>Search for a place, click the map, or drag the marker.</span>
+            <button type="button" id="close-location-picker" class="citizen-report-create-modal-close"
+                aria-label="Close map">&times;</button>
         </div>
-        <button type="button" id="close-location-picker" class="cp-location-close" aria-label="Close map">&times;</button>
-    </div>
-    <div class="cp-location-toolbar">
-        <div class="cp-location-search-wrap">
-            <input type="search" id="location-search" placeholder="Search street, building or area..." autocomplete="off">
-            <div id="location-search-results" class="cp-location-results"></div>
+
+        <div class="citizen-report-create-modal-toolbar">
+            <div class="citizen-report-create-search-wrap">
+                <input type="search" id="location-search" placeholder="Search street, building or area..."
+                    autocomplete="off">
+                <div id="location-search-results" class="citizen-report-create-search-results"></div>
+            </div>
+            <button type="button" id="picker-current-location" class="citizen-report-create-current-location">◎ Use my
+                location</button>
         </div>
-        <button type="button" id="picker-current-location" class="btn btn-outline-info">◎ Use my location</button>
-    </div>
-    <div class="cp-location-map-wrap"><div id="cp-location-map"></div></div>
-    <div class="cp-location-footer">
-        <span id="picker-status" aria-live="polite">Click the map to choose a location.</span>
-        <div class="d-flex gap-2">
-            <button type="button" id="cancel-location-picker" class="btn btn-outline-light">Cancel</button>
-            <button type="button" id="confirm-location-picker" class="btn btn-info" disabled>Confirm location</button>
+
+        <div class="citizen-report-create-map-wrap">
+            <div id="cp-location-map"></div>
+        </div>
+
+        <div class="citizen-report-create-modal-footer">
+            <span id="picker-status" aria-live="polite">Click the map to choose a location.</span>
+            <div class="citizen-report-create-modal-actions">
+                <button type="button" id="cancel-location-picker"
+                    class="citizen-report-create-modal-cancel">Cancel</button>
+                <button type="button" id="confirm-location-picker" class="citizen-report-create-modal-confirm"
+                    disabled>Confirm location</button>
+            </div>
         </div>
     </div>
-</div>
 
-<style>
-
-</style>
 @endsection

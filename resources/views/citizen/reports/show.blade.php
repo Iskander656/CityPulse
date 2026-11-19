@@ -4,182 +4,145 @@
 
 @section('content')
 
-    <div class="container py-5">
+    @push('styles')
+        <link rel="stylesheet" href="{{ asset('css/citizen/reports/show.css') }}">
+    @endpush
 
-        {{-- Header --}}
-        <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="citizen-report-details-page">
+        <div class="citizen-report-details-container">
 
-            <div>
-                <h2 class="text-light">Report Details</h2>
-                <p class="text-secondary mb-0">
-                    Report #{{ $report->id }}
-                </p>
-            </div>
+            <header class="citizen-report-details-header">
+                <div class="citizen-report-details-heading">
+                    <span class="citizen-report-details-eyebrow">CITIZEN PORTAL / REPORT TRACKING</span>
+                    <h1>Report Details</h1>
+                    <p>Review the information, attachments, and latest activity for your report.</p>
+                    <span class="citizen-report-details-reference">REPORT #{{ $report->id }}</span>
+                </div>
 
-            <a href="{{ route('citizen.reports.index') }}" class="btn btn-outline-light">
-                Back to My Reports
-            </a>
+                <a href="{{ route('citizen.reports.index') }}" class="citizen-report-details-back">
+                    <span aria-hidden="true">←</span>
+                    Back to My Reports
+                </a>
+            </header>
 
-        </div>
+            <section class="citizen-report-details-card citizen-report-details-overview">
+                <div class="citizen-report-details-card-top">
+                    <div class="citizen-report-details-title-group">
+                        <span class="citizen-report-details-section-label">REPORT OVERVIEW</span>
+                        <h2>{{ $report->title }}</h2>
+                        <span class="citizen-report-details-category">{{ $report->category->name }}</span>
+                    </div>
+                    <span class="citizen-report-details-status">{{ $report->status->name }}</span>
+                </div>
 
-        {{-- Report Information --}}
-        <div class="card bg-dark text-light border-secondary mb-4">
+                <div class="citizen-report-details-divider"></div>
 
-            <div class="card-body p-4">
+                <div class="citizen-report-details-description">
+                    <h3>Description</h3>
+                    <p>{{ $report->description }}</p>
+                </div>
 
-                <div class="d-flex justify-content-between align-items-start">
+                <div class="citizen-report-details-divider"></div>
 
+                <div class="citizen-report-details-information-grid">
+                    <div class="citizen-report-details-information-item">
+                        <span>Submitted</span>
+                        <strong>{{ $report->created_at->format('d M Y, H:i') }}</strong>
+                    </div>
+                    <div class="citizen-report-details-information-item">
+                        <span>Last Updated</span>
+                        <strong>{{ $report->updated_at->format('d M Y, H:i') }}</strong>
+                    </div>
+                    <div class="citizen-report-details-information-item citizen-report-details-address">
+                        <span>Address</span>
+                        <strong>{{ $report->address ?? 'No address provided' }}</strong>
+                    </div>
+                    <div class="citizen-report-details-information-item">
+                        <span>Latitude</span>
+                        <strong>{{ $report->latitude }}</strong>
+                    </div>
+                    <div class="citizen-report-details-information-item">
+                        <span>Longitude</span>
+                        <strong>{{ $report->longitude }}</strong>
+                    </div>
+                </div>
+            </section>
+
+            <section class="citizen-report-details-card citizen-report-details-attachments">
+                <div class="citizen-report-details-section-heading">
                     <div>
-                        <h3>{{ $report->title }}</h3>
-
-                        <p class="text-secondary">
-                            {{ $report->category->name }}
-                        </p>
+                        <span class="citizen-report-details-section-label">SUPPORTING EVIDENCE</span>
+                        <h2>Attachments</h2>
                     </div>
-
-                    <span class="badge bg-info fs-6">
-                        {{ $report->status->name }}
-                    </span>
-
+                    <span class="citizen-report-details-count">{{ $report->images->count() }} files</span>
                 </div>
-
-                <hr class="border-secondary">
-
-                <h5>Description</h5>
-
-                <p class="text-light">
-                    {{ $report->description }}
-                </p>
-
-                <hr class="border-secondary">
-
-                <div class="row">
-
-                    <div class="col-md-6 mb-3">
-                        <small class="text-secondary">Submitted</small>
-                        <p>{{ $report->created_at->format('d M Y, H:i') }}</p>
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-                        <small class="text-secondary">Last Updated</small>
-                        <p>{{ $report->updated_at->format('d M Y, H:i') }}</p>
-                    </div>
-
-                    <div class="col-md-12">
-                        <small class="text-secondary">Address</small>
-
-                        <p>
-                            {{ $report->address ?? 'No address provided' }}
-                        </p>
-                    </div>
-
-                    <div class="col-md-6">
-                        <small class="text-secondary">Latitude</small>
-                        <p>{{ $report->latitude }}</p>
-                    </div>
-
-                    <div class="col-md-6">
-                        <small class="text-secondary">Longitude</small>
-                        <p>{{ $report->longitude }}</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        {{-- Images --}}
-        <div class="card bg-dark text-light border-secondary mb-4">
-
-            <div class="card-body p-4">
-
-                <h4 class="mb-3">Attachments</h4>
 
                 @forelse($report->images as $image)
-                    <div class="mb-3">
-
+                    <div class="citizen-report-details-attachment">
                         <img src="{{ asset('storage/' . $image->image_path) }}" alt="Report attachment"
-                            class="img-fluid rounded" style="max-height: 300px;">
-
-                        <p class="text-secondary mt-2">
-                            {{ $image->original_name }}
-                        </p>
-
+                            class="citizen-report-details-image">
+                        <p>{{ $image->original_name }}</p>
                     </div>
-
                 @empty
-
-                    <p class="text-secondary">
-                        No images attached to this report.
-                    </p>
+                    <div class="citizen-report-details-empty">
+                        <span class="citizen-report-details-empty-icon" aria-hidden="true">▧</span>
+                        <p>No images attached to this report.</p>
+                    </div>
                 @endforelse
+            </section>
 
-            </div>
+            <section class="citizen-report-details-card citizen-report-details-activity">
+                <div class="citizen-report-details-section-heading">
+                    <div>
+                        <span class="citizen-report-details-section-label">PROGRESS HISTORY</span>
+                        <h2>Report Activity</h2>
+                    </div>
+                </div>
+
+                <div class="citizen-report-details-timeline">
+                    @forelse($report->activities as $activity)
+                        <article class="citizen-report-details-timeline-item">
+                            <span class="citizen-report-details-timeline-marker" aria-hidden="true"></span>
+                            <div class="citizen-report-details-timeline-content">
+                                <h3>{{ str($activity->activity_type->value)->replace('_', ' ')->title() }}</h3>
+                                <p>{{ $activity->description }}</p>
+                                <small>
+                                    {{ $activity->created_at->format('d M Y, H:i') }}
+                                    @if ($activity->user)
+                                        · {{ $activity->user->name }}
+                                    @endif
+                                </small>
+
+                                @if ($activity->oldStatus || $activity->newStatus)
+                                    <div class="citizen-report-details-status-change">
+                                        @if ($activity->oldStatus)
+                                            <span>{{ $activity->oldStatus->name }}</span>
+                                        @endif
+                                        @if ($activity->oldStatus && $activity->newStatus)
+                                            <span class="citizen-report-details-status-arrow">→</span>
+                                        @endif
+                                        @if ($activity->newStatus)
+                                            <span>{{ $activity->newStatus->name }}</span>
+                                        @endif
+                                    </div>
+                                @endif
+                            </div>
+                        </article>
+                    @empty
+                        <div class="citizen-report-details-empty">
+                            <span class="citizen-report-details-empty-icon" aria-hidden="true">◷</span>
+                            <p>No activity recorded yet.</p>
+                        </div>
+                    @endforelse
+                </div>
+            </section>
+
+            <footer class="citizen-report-details-footer">
+                <span>CityPulse · Citizen Report Tracking</span>
+                <span>Keeping your city informed.</span>
+            </footer>
 
         </div>
-
-        {{-- Activity Timeline --}}
-        <div class="card bg-dark text-light border-secondary">
-
-            <div class="card-body p-4">
-
-                <h4 class="mb-4">Report Activity</h4>
-
-                @forelse($report->activities as $activity)
-
-                    <div class="border-start border-secondary ps-3 mb-4">
-
-                        <h6 class="text-info">
-                            {{ str($activity->activity_type->value)->replace('_', ' ')->title() }}
-                        </h6>
-
-                        <p class="mb-1">
-                            {{ $activity->description }}
-                        </p>
-
-                        <small class="text-secondary">
-
-                            {{ $activity->created_at->format('d M Y, H:i') }}
-
-                            @if ($activity->user)
-                                · {{ $activity->user->name }}
-                            @endif
-
-                        </small>
-
-                        @if ($activity->oldStatus || $activity->newStatus)
-                            <p class="mt-2 small">
-
-                                @if ($activity->oldStatus)
-                                    {{ $activity->oldStatus->name }}
-                                @endif
-
-                                @if ($activity->oldStatus && $activity->newStatus)
-                                    →
-                                @endif
-
-                                @if ($activity->newStatus)
-                                    {{ $activity->newStatus->name }}
-                                @endif
-
-                            </p>
-                        @endif
-
-                    </div>
-
-                @empty
-
-                    <p class="text-secondary">
-                        No activity recorded yet.
-                    </p>
-
-                @endforelse
-
-            </div>
-
-        </div>
-
     </div>
 
 @endsection

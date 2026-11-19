@@ -1,50 +1,85 @@
 @extends('layouts.app')
+
 @section('title', 'Edit Department')
+
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/admin/departments/edit.css') }}">
+@endpush
+
 @section('content')
-    <div class="container py-4 text-light">
-        <a href="{{ route('admin.departments.index') }}" class="btn btn-outline-light btn-sm mb-4">
-            Back to Departments
-        </a>
+    <div class="admin-department-edit-page">
+        <header class="admin-department-edit-header">
+            <div class="admin-department-edit-header__content">
+                <span class="admin-department-edit-eyebrow">CITYPULSE / DEPARTMENT DIRECTORY</span>
+                <h1 class="admin-department-edit-title">Edit <span>Department</span></h1>
+                <p class="admin-department-edit-subtitle">
+                    Update the department's information and contact details.
+                </p>
+            </div>
 
-        <div class="card bg-black border-secondary text-light">
-            <div class="card-body p-4">
+            <a href="{{ route('admin.departments.index') }}" class="admin-department-edit-back">
+                <i class="bi bi-arrow-left" aria-hidden="true"></i>
+                Back to Departments
+            </a>
+        </header>
 
-                <h2 class="mb-4">Edit Department</h2>
+        <section class="admin-department-edit-card">
+            <div class="admin-department-edit-card__header">
+                <div class="admin-department-edit-card__identity">
+                    <span class="admin-department-edit-icon" aria-hidden="true">
+                        <i class="bi bi-building-gear"></i>
+                    </span>
+                    <div>
+                        <span class="admin-department-edit-card__eyebrow">DEPARTMENT SETTINGS</span>
+                        <h2>{{ $department->name }}</h2>
+                        <p>Modify this department's directory information.</p>
+                    </div>
+                </div>
+                <span class="admin-department-edit-badge">DEPT #{{ $department->id }}</span>
+            </div>
 
+            <div class="admin-department-edit-card__body">
                 <form action="{{ route('admin.departments.update', $department) }}" method="POST">
                     @csrf
                     @method('PUT')
 
-                    <div class="mb-3">
-                        <label class="form-label">Department Name</label>
-                        <input type="text" name="name" class="form-control bg-dark text-light border-secondary"
+                    <div class="admin-department-edit-field">
+                        <label for="department-name" class="form-label">Department Name</label>
+                        <input id="department-name" type="text" name="name" class="form-control"
                             value="{{ old('name', $department->name) }}" required>
                         @error('name')
-                            <div class="text-danger">{{ $message }}</div>
+                            <div class="admin-department-edit-error">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Description</label>
-                        <textarea name="description" rows="4" class="form-control bg-dark text-light border-secondary">{{ old('description', $department->description) }}</textarea>
+                    <div class="admin-department-edit-field">
+                        <label for="department-description" class="form-label">Description</label>
+                        <textarea id="department-description" name="description" rows="4" class="form-control">{{ old('description', $department->description) }}</textarea>
                         @error('description')
-                            <div class="text-danger">{{ $message }}</div>
+                            <div class="admin-department-edit-error">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    <div class="mb-4">
-                        <label class="form-label">Contact Email</label>
-                        <input type="email" name="contact_email" class="form-control bg-dark text-light border-secondary"
+                    <div class="admin-department-edit-field">
+                        <label for="department-contact-email" class="form-label">Contact Email</label>
+                        <input id="department-contact-email" type="email" name="contact_email" class="form-control"
                             value="{{ old('contact_email', $department->contact_email) }}">
                         @error('contact_email')
-                            <div class="text-danger">{{ $message }}</div>
+                            <div class="admin-department-edit-error">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    <button class="btn btn-danger">Save Changes</button>
+                    <div class="admin-department-edit-actions">
+                        <a href="{{ route('admin.departments.index') }}" class="admin-department-edit-cancel">
+                            Cancel
+                        </a>
+                        <button type="submit" class="admin-department-edit-submit">
+                            <i class="bi bi-check2-circle" aria-hidden="true"></i>
+                            Save Changes
+                        </button>
+                    </div>
                 </form>
-
             </div>
-        </div>
+        </section>
     </div>
 @endsection

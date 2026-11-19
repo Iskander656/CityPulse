@@ -1,0 +1,479 @@
+/* =========================================================
+   CITYPULSE — CITIZEN MY REPORTS
+   ========================================================= */
+
+.citizen-reports-page {
+    min-height: 100vh;
+    padding: 52px 24px 36px;
+    color: #e8eefb;
+    background:
+        radial-gradient(
+            circle at 12% 0%,
+            rgba(37, 99, 235, 0.16),
+            transparent 31%
+        ),
+        radial-gradient(
+            circle at 92% 18%,
+            rgba(14, 165, 233, 0.09),
+            transparent 27%
+        ),
+        linear-gradient(145deg, #07111f 0%, #0a1628 48%, #0b1729 100%);
+}
+
+.citizen-reports-container {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+}
+
+.citizen-reports-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.citizen-reports-heading {
+    min-width: 0;
+}
+
+.citizen-reports-eyebrow,
+.citizen-reports-section-label {
+    display: inline-block;
+    color: #70a9ff;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    line-height: 1.5;
+}
+
+.citizen-reports-heading h1 {
+    margin: 10px 0 7px;
+    color: #f4f7ff;
+    font-size: clamp(2rem, 4vw, 2.65rem);
+    font-weight: 800;
+    letter-spacing: -0.045em;
+}
+
+.citizen-reports-heading > p {
+    margin: 0;
+    color: #91a2bc;
+    font-size: 0.94rem;
+    line-height: 1.7;
+}
+
+.citizen-reports-back {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 44px;
+    padding: 0 16px;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 10px;
+    color: #d5e2f5;
+    background: rgba(15, 31, 52, 0.78);
+    font-size: 0.84rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+        border-color 160ms ease,
+        background 160ms ease,
+        transform 160ms ease;
+}
+
+.citizen-reports-back:hover {
+    transform: translateY(-2px);
+    border-color: rgba(96, 165, 250, 0.55);
+    color: #fff;
+    background: rgba(30, 58, 95, 0.85);
+}
+
+.citizen-reports-back span {
+    color: #8bbaff;
+    font-size: 1.1rem;
+}
+
+.citizen-reports-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    margin-bottom: 20px;
+    padding: 16px 18px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+}
+
+.citizen-reports-alert-success {
+    border-color: rgba(52, 211, 153, 0.2);
+    color: #b8f4dc;
+    background: rgba(16, 185, 129, 0.09);
+}
+
+.citizen-reports-alert-icon {
+    display: inline-flex;
+    width: 25px;
+    height: 25px;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #6ee7b7;
+    background: rgba(16, 185, 129, 0.16);
+    font-weight: 800;
+}
+
+.citizen-reports-alert-ai {
+    border-color: rgba(96, 165, 250, 0.22);
+    color: #c9dafa;
+    background: linear-gradient(
+        120deg,
+        rgba(30, 64, 115, 0.36),
+        rgba(17, 43, 72, 0.5)
+    );
+}
+
+.citizen-reports-ai-icon {
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    border-radius: 10px;
+    color: #93c5fd;
+    background: rgba(37, 99, 235, 0.16);
+    font-size: 1.1rem;
+}
+
+.citizen-reports-ai-content {
+    min-width: 0;
+    flex: 1;
+}
+
+.citizen-reports-ai-content h2 {
+    margin: 5px 0 13px;
+    color: #eef5ff;
+    font-size: 1.05rem;
+    font-weight: 750;
+}
+
+.citizen-reports-ai-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 30px;
+    margin-bottom: 9px;
+}
+
+.citizen-reports-ai-details p {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0;
+}
+
+.citizen-reports-ai-details strong {
+    color: #91a9ca;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.citizen-reports-ai-details span {
+    color: #e0edff;
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+.citizen-reports-ai-content > small {
+    color: #8fa6c5;
+    font-size: 0.72rem;
+    line-height: 1.6;
+}
+
+.citizen-reports-card {
+    overflow: hidden;
+    border: 1px solid rgba(148, 163, 184, 0.13);
+    border-radius: 17px;
+    background: linear-gradient(
+        145deg,
+        rgba(17, 34, 57, 0.96),
+        rgba(12, 27, 47, 0.96)
+    );
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.16);
+}
+
+.citizen-reports-card-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px 27px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.citizen-reports-card-heading h2 {
+    margin: 7px 0 0;
+    color: #f0f5ff;
+    font-size: 1.25rem;
+    font-weight: 750;
+    letter-spacing: -0.02em;
+}
+
+.citizen-reports-card-mark {
+    display: inline-flex;
+    width: 39px;
+    height: 39px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(96, 165, 250, 0.22);
+    border-radius: 11px;
+    color: #91bdff;
+    background: rgba(37, 99, 235, 0.12);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+}
+
+.citizen-reports-list {
+    padding: 0 27px;
+}
+
+.citizen-reports-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.citizen-reports-item:last-child {
+    border-bottom: 0;
+}
+
+.citizen-reports-item-main {
+    min-width: 0;
+    flex: 1;
+}
+
+.citizen-reports-item-title-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    margin-bottom: 9px;
+}
+
+.citizen-reports-item-title-row h3 {
+    margin: 0;
+    color: #e8f0fc;
+    font-size: 0.98rem;
+    font-weight: 750;
+    overflow-wrap: anywhere;
+}
+
+.citizen-reports-status {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 6px;
+    min-height: 25px;
+    padding: 4px 9px;
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 7px;
+    color: #8bdcff;
+    background: rgba(14, 165, 233, 0.09);
+    font-size: 0.68rem;
+    font-weight: 800;
+}
+
+.citizen-reports-status::before {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+    content: "";
+}
+
+.citizen-reports-category {
+    display: inline-block;
+    color: #879bb5;
+    font-size: 0.78rem;
+}
+
+.citizen-reports-view-link {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 9px;
+    min-height: 38px;
+    padding: 0 12px;
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    border-radius: 8px;
+    color: #a9ccff;
+    background: rgba(37, 99, 235, 0.09);
+    font-size: 0.77rem;
+    font-weight: 750;
+    text-decoration: none;
+    transition:
+        border-color 160ms ease,
+        background 160ms ease,
+        color 160ms ease;
+}
+
+.citizen-reports-view-link:hover {
+    border-color: rgba(96, 165, 250, 0.48);
+    color: #fff;
+    background: rgba(37, 99, 235, 0.2);
+}
+
+.citizen-reports-view-link span {
+    font-size: 1rem;
+}
+
+.citizen-reports-empty {
+    display: flex;
+    min-height: 245px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.citizen-reports-empty-icon {
+    display: inline-flex;
+    width: 52px;
+    height: 52px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    border-radius: 15px;
+    color: #83b5fa;
+    background: rgba(37, 99, 235, 0.11);
+    font-size: 1.4rem;
+}
+
+.citizen-reports-empty h3 {
+    margin: 0 0 7px;
+    color: #e4edfa;
+    font-size: 1rem;
+    font-weight: 750;
+}
+
+.citizen-reports-empty p {
+    margin: 0;
+    color: #8499b4;
+    font-size: 0.83rem;
+}
+
+.citizen-reports-pagination {
+    padding: 17px 27px 22px;
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.citizen-reports-pagination nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.citizen-reports-pagination nav > div:first-child {
+    display: none;
+}
+
+.citizen-reports-pagination nav > div:last-child,
+.citizen-reports-pagination .pagination {
+    margin-bottom: 0;
+}
+
+.citizen-reports-pagination .page-link {
+    border-color: rgba(148, 163, 184, 0.17);
+    color: #b8c9df;
+    background: rgba(8, 22, 39, 0.75);
+    box-shadow: none;
+}
+
+.citizen-reports-pagination .page-link:hover {
+    color: #fff;
+    background: rgba(37, 99, 235, 0.2);
+}
+
+.citizen-reports-pagination .page-item.active .page-link {
+    border-color: #3479d6;
+    color: #fff;
+    background: #2563eb;
+}
+
+.citizen-reports-pagination .page-item.disabled .page-link {
+    color: #52647c;
+    background: rgba(8, 22, 39, 0.45);
+}
+
+.citizen-reports-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 18px 2px 0;
+    color: #657a96;
+    font-size: 0.72rem;
+}
+
+@media (max-width: 700px) {
+    .citizen-reports-page {
+        padding: 34px 16px 26px;
+    }
+
+    .citizen-reports-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .citizen-reports-back {
+        width: 100%;
+    }
+
+    .citizen-reports-card-heading {
+        padding: 21px;
+    }
+
+    .citizen-reports-list {
+        padding: 0 21px;
+    }
+
+    .citizen-reports-item {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .citizen-reports-view-link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .citizen-reports-pagination {
+        padding: 16px 21px 20px;
+    }
+
+    .citizen-reports-pagination nav {
+        justify-content: center;
+    }
+
+    .citizen-reports-footer {
+        flex-direction: column;
+        gap: 6px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .citizen-reports-back,
+    .citizen-reports-view-link {
+        transition: none;
+    }
+}

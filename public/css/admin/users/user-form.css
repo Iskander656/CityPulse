@@ -1,0 +1,429 @@
+/* =========================================================
+   CITYPULSE — ADMIN USER FORM
+   Edit / Create User
+========================================================= */
+
+.admin-user-form-page {
+    min-height: 100vh;
+    padding: 10px 0 40px;
+    color: #e2e8f0;
+}
+
+/* HEADER */
+
+.admin-user-form-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.admin-user-form-eyebrow {
+    display: block;
+    margin-bottom: 10px;
+    color: #60a5fa;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.admin-user-form-header__title {
+    margin: 0;
+    color: #f8fafc;
+    font-size: clamp(28px, 3vw, 36px);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.admin-user-form-header__title span {
+    color: #60a5fa;
+}
+
+.admin-user-form-header__subtitle {
+    margin: 9px 0 0;
+    color: #8494aa;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.admin-user-form-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 11px 16px;
+    color: #cbd5e1;
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+}
+
+.admin-user-form-back:hover {
+    color: #fff;
+    background: rgba(59, 130, 246, 0.15);
+    border-color: rgba(96, 165, 250, 0.4);
+    transform: translateY(-2px);
+}
+
+/* MAIN CARD */
+
+.admin-user-form-card {
+    max-width: 950px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #111d32, #0c1729);
+    border: 1px solid rgba(148, 163, 184, 0.13);
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.16);
+}
+
+.admin-user-form-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 24px 27px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.admin-user-form-card__identity {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-width: 0;
+}
+
+.admin-user-form-avatar {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 53px;
+    height: 53px;
+    color: #bfdbfe;
+    background: linear-gradient(
+        145deg,
+        rgba(59, 130, 246, 0.28),
+        rgba(37, 99, 235, 0.1)
+    );
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.admin-user-form-card__eyebrow {
+    display: block;
+    margin-bottom: 5px;
+    color: #60a5fa;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.admin-user-form-card__identity h2 {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 17px;
+    font-weight: 750;
+    overflow-wrap: anywhere;
+}
+
+.admin-user-form-card__identity p {
+    margin: 5px 0 0;
+    color: #8494aa;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+}
+
+.admin-user-form-id {
+    flex-shrink: 0;
+    padding: 8px 12px;
+    color: #93c5fd;
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 9px;
+    font-family: monospace;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+/* FORM BODY */
+
+.admin-user-form-card__body {
+    padding: 27px;
+}
+
+/* INCLUDED PARTIAL — GENERAL FORM ELEMENTS */
+
+.admin-user-form-card__body form > div:not(.admin-user-form-actions) {
+    margin-bottom: 19px;
+}
+
+.admin-user-form-card__body label {
+    display: block;
+    margin-bottom: 8px;
+    color: #cbd5e1;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.admin-user-form-card__body input:not([type="checkbox"]):not([type="radio"]),
+.admin-user-form-card__body select,
+.admin-user-form-card__body textarea {
+    display: block;
+    width: 100%;
+    min-height: 45px;
+    padding: 11px 13px;
+    color: #e2e8f0;
+    background-color: #0b1526;
+    border: 1px solid rgba(148, 163, 184, 0.17);
+    border-radius: 10px;
+    outline: none;
+    font-family: inherit;
+    font-size: 12px;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.admin-user-form-card__body textarea {
+    min-height: 105px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.admin-user-form-card__body input:focus,
+.admin-user-form-card__body select:focus,
+.admin-user-form-card__body textarea:focus {
+    color: #f8fafc;
+    background-color: #0b1526;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+.admin-user-form-card__body input::placeholder,
+.admin-user-form-card__body textarea::placeholder {
+    color: #64748b;
+}
+
+.admin-user-form-card__body select option {
+    color: #e2e8f0;
+    background: #0b1526;
+}
+
+/* VALIDATION */
+
+.admin-user-form-card__body .text-danger,
+.admin-user-form-card__body .invalid-feedback {
+    display: block;
+    margin-top: 7px;
+    color: #fca5a5;
+    font-size: 11px;
+}
+
+.admin-user-form-card__body .is-invalid {
+    border-color: rgba(248, 113, 113, 0.7) !important;
+}
+
+.admin-user-form-card__body .form-text {
+    margin-top: 7px;
+    color: #718198;
+    font-size: 10px;
+}
+
+/* CHECKBOXES */
+
+.admin-user-form-card__body input[type="checkbox"],
+.admin-user-form-card__body input[type="radio"] {
+    accent-color: #3b82f6;
+}
+
+/* ACTIONS */
+
+.admin-user-form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 11px;
+    padding-top: 23px;
+    margin-top: 27px;
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.admin-user-form-cancel,
+.admin-user-form-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 11px 19px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 750;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.admin-user-form-cancel {
+    color: #cbd5e1;
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.admin-user-form-cancel:hover {
+    color: #fff;
+    background: rgba(148, 163, 184, 0.14);
+}
+
+.admin-user-form-submit {
+    color: #fff;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    cursor: pointer;
+    box-shadow: 0 7px 18px rgba(37, 99, 235, 0.15);
+}
+
+.admin-user-form-submit:hover {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    box-shadow: 0 10px 22px rgba(37, 99, 235, 0.25);
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 767.98px) {
+    .admin-user-form-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .admin-user-form-back {
+        width: 100%;
+    }
+
+    .admin-user-form-card__header,
+    .admin-user-form-card__body {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .admin-user-form-page {
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+
+    .admin-user-form-card__header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .admin-user-form-id {
+        align-self: flex-start;
+    }
+
+    .admin-user-form-actions {
+        align-items: stretch;
+        flex-direction: column-reverse;
+    }
+
+    .admin-user-form-cancel,
+    .admin-user-form-submit {
+        width: 100%;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    .admin-user-form-page *,
+    .admin-user-form-page *::before,
+    .admin-user-form-page *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* =========================================================
+   CREATE USER — FORM FIELDS
+========================================================= */
+
+.admin-user-form-card__body .mb-3 {
+    margin-bottom: 23px !important;
+}
+
+.admin-user-form-card__body .form-label {
+    display: block;
+    margin-bottom: 9px;
+    color: #cbd5e1;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.admin-user-form-card__body .form-control,
+.admin-user-form-card__body .form-select {
+    min-height: 47px;
+    padding: 12px 15px;
+    color: #e2e8f0 !important;
+    background-color: #091729 !important;
+    border: 1px solid rgba(148, 163, 184, 0.2) !important;
+    border-radius: 10px;
+    font-size: 12px;
+    box-shadow: none;
+    transition: all 0.2s ease;
+}
+
+.admin-user-form-card__body .form-control:focus,
+.admin-user-form-card__body .form-select:focus {
+    color: #fff !important;
+    background-color: #0b1c32 !important;
+    border-color: #0ea5e9 !important;
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.13);
+}
+
+.admin-user-form-card__body .form-select option {
+    color: #e2e8f0;
+    background-color: #091729;
+}
+
+.admin-user-form-card__body .text-danger {
+    display: block;
+    margin-top: 7px;
+    color: #fb7185 !important;
+    font-size: 11px;
+}
+
+.admin-user-form-card__body .text-secondary {
+    display: block;
+    margin-top: 8px;
+    color: #8494aa !important;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.admin-user-form-card__body input[type="password"] {
+    letter-spacing: 2px;
+}
+
+.admin-user-form-card__body input::placeholder {
+    color: #64748b;
+}
+
+@media (max-width: 576px) {
+    .admin-user-form-card__body .mb-3 {
+        margin-bottom: 19px !important;
+    }
+
+    .admin-user-form-card__body .form-control,
+    .admin-user-form-card__body .form-select {
+        min-height: 44px;
+    }
+}

@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title') | CityPulse</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/admin/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-icons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/dashboard/dashboard.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/leaflet.css') }}">
     <link rel="stylesheet" href="{{ asset('css/maps/citypulse-map.css') }}">
     <link rel="stylesheet" href="{{ asset('css/reports/report-form.css') }}">

@@ -1,264 +1,512 @@
-.officer-dashboard {
-    --cp-ink: #17243b;
-    --cp-muted: #718096;
-    --cp-line: #e8edf4;
-    --cp-surface: #ffffff;
-    --cp-bg: #f4f7fb;
-    color: var(--cp-ink);
+/* =========================================
+   CITYPULSE — OFFICER DASHBOARD
+   public/css/officer/dashboard.css
+========================================= */
+
+.officer-dashboard-page {
+    min-height: calc(100vh - 72px);
+    padding: 42px 0 24px;
+    color: #e5edf8;
+    background:
+        radial-gradient(
+            circle at 8% 0%,
+            rgba(37, 99, 235, 0.13),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 95% 35%,
+            rgba(14, 165, 233, 0.08),
+            transparent 25%
+        ),
+        #080f1d;
 }
 
-.officer-dashboard .dashboard-hero {
-    position: relative;
-    overflow: hidden;
-    border-radius: 24px;
-    padding: 2rem;
-    color: #fff;
-    background: linear-gradient(120deg, #10243e 0%, #173f60 58%, #087e8b 100%);
-    box-shadow: 0 16px 38px rgba(18, 48, 78, 0.16);
+.officer-dashboard-container {
+    width: min(100% - 48px, 1480px);
+    margin: 0 auto;
+    padding: 0;
 }
 
-.officer-dashboard .dashboard-hero::after {
-    content: "";
-    position: absolute;
-    width: 280px;
-    height: 280px;
-    right: -75px;
-    top: -135px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+/* HEADER */
+.officer-dashboard-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 42px;
+}
+
+.officer-eyebrow,
+.officer-section-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: #60a5fa;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.officer-eyebrow-dot,
+.officer-workspace-status span,
+.officer-live-indicator span {
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
     border-radius: 50%;
-    box-shadow:
-        0 0 0 28px rgba(255, 255, 255, 0.035),
-        0 0 0 58px rgba(255, 255, 255, 0.025);
-    pointer-events: none;
+    background: #38bdf8;
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.55);
 }
 
-.officer-dashboard .hero-content {
-    position: relative;
-    z-index: 1;
+.officer-header-copy h1 {
+    margin: 13px 0 9px;
+    color: #f8fafc;
+    font-size: clamp(30px, 4vw, 43px);
+    font-weight: 800;
+    letter-spacing: -1.8px;
 }
-.officer-dashboard .eyebrow {
+
+.officer-header-copy p,
+.officer-section-heading p,
+.officer-panel-header p {
+    margin: 0;
+    color: #8fa1b8;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.officer-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.officer-header-actions form {
+    margin: 0;
+}
+
+.officer-workspace-status {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    color: #b8e9e8;
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-}
-.officer-dashboard .hero-title {
-    margin: 0.65rem 0 0.45rem;
-    font-size: clamp(1.65rem, 3vw, 2.35rem);
-    font-weight: 800;
-    letter-spacing: -0.04em;
-}
-.officer-dashboard .hero-subtitle {
-    color: rgba(255, 255, 255, 0.72);
-    max-width: 620px;
-}
-.officer-dashboard .hero-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.55rem;
-    padding: 0.65rem 0.9rem;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.09);
-    color: #e7ffff;
-    font-size: 0.82rem;
-    font-weight: 600;
+    gap: 9px;
+    padding: 11px 14px;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 10px;
+    background: rgba(15, 23, 42, 0.72);
+    color: #b8c7d9;
+    font-size: 11px;
+    font-weight: 700;
     white-space: nowrap;
 }
-.officer-dashboard .status-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #63e6be;
-    box-shadow: 0 0 0 4px rgba(99, 230, 190, 0.15);
+
+.officer-workspace-status span {
+    background: #22c55e;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.55);
 }
-.officer-dashboard .section-label {
-    color: #8491a5;
-    font-size: 0.72rem;
+
+.officer-logout-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 42px;
+    padding: 0 15px;
+    border: 1px solid rgba(248, 113, 113, 0.25);
+    border-radius: 10px;
+    background: rgba(127, 29, 29, 0.12);
+    color: #fca5a5;
+    font-size: 12px;
     font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
 }
-.officer-dashboard .metric-card {
+
+.officer-logout-button:hover {
+    border-color: rgba(248, 113, 113, 0.5);
+    background: rgba(127, 29, 29, 0.24);
+    color: #fecaca;
+}
+
+/* SECTION HEADINGS */
+.officer-section-block {
+    margin-bottom: 34px;
+}
+
+.officer-section-heading,
+.officer-panel-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 19px;
+}
+
+.officer-section-heading h2,
+.officer-panel-header h2 {
+    margin: 8px 0 5px;
+    color: #f1f5f9;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.officer-live-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 11px;
+    border: 1px solid rgba(34, 197, 94, 0.18);
+    border-radius: 8px;
+    background: rgba(34, 197, 94, 0.07);
+    color: #86efac;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    white-space: nowrap;
+}
+
+.officer-live-indicator span {
+    width: 6px;
+    height: 6px;
+    flex-basis: 6px;
+    background: #22c55e;
+    box-shadow: 0 0 9px rgba(34, 197, 94, 0.6);
+}
+
+/* METRIC CARDS */
+.officer-metric-card {
+    position: relative;
     height: 100%;
-    padding: 1.25rem;
-    border: 1px solid var(--cp-line);
-    border-radius: 18px;
-    background: var(--cp-surface);
-    box-shadow: 0 5px 18px rgba(25, 45, 75, 0.035);
+    min-height: 174px;
+    overflow: hidden;
+    padding: 21px;
+    border: 1px solid rgba(148, 163, 184, 0.13);
+    border-radius: 15px;
+    background: linear-gradient(
+        145deg,
+        rgba(19, 33, 54, 0.96),
+        rgba(12, 23, 40, 0.96)
+    );
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
     transition:
         transform 0.2s ease,
+        border-color 0.2s ease,
         box-shadow 0.2s ease;
 }
-.officer-dashboard .metric-card:hover {
+
+.officer-metric-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 26px rgba(25, 45, 75, 0.08);
-}
-.officer-dashboard .metric-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-}
-.officer-dashboard .metric-icon {
-    display: grid;
-    width: 42px;
-    height: 42px;
-    place-items: center;
-    border-radius: 13px;
-    font-size: 1.1rem;
-    font-weight: 800;
-}
-.officer-dashboard .metric-number {
-    margin: 1rem 0 0.15rem;
-    color: var(--cp-ink);
-    font-size: 2rem;
-    font-weight: 800;
-    letter-spacing: -0.05em;
-    line-height: 1.1;
-}
-.officer-dashboard .metric-caption {
-    color: var(--cp-muted);
-    font-size: 0.88rem;
-}
-.officer-dashboard .metric-total .metric-icon {
-    color: #2764c5;
-    background: #eaf1ff;
-}
-.officer-dashboard .metric-pending .metric-icon {
-    color: #b7791f;
-    background: #fff5df;
-}
-.officer-dashboard .metric-progress .metric-icon {
-    color: #087e8b;
-    background: #e3f7f7;
-}
-.officer-dashboard .metric-resolved .metric-icon {
-    color: #16845b;
-    background: #e4f7ee;
-}
-.officer-dashboard .reports-panel {
-    overflow: hidden;
-    border: 1px solid var(--cp-line);
-    border-radius: 20px;
-    background: #fff;
-    box-shadow: 0 7px 24px rgba(25, 45, 75, 0.045);
-}
-.officer-dashboard .panel-header {
-    padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid var(--cp-line);
-}
-.officer-dashboard .panel-title {
-    margin: 0;
-    font-size: 1.05rem;
-    font-weight: 800;
-}
-.officer-dashboard .panel-subtitle {
-    margin: 0.25rem 0 0;
-    color: var(--cp-muted);
-    font-size: 0.84rem;
-}
-.officer-dashboard .table {
-    margin: 0;
-}
-.officer-dashboard .table thead th {
-    padding: 0.9rem 1.25rem;
-    border-bottom: 1px solid var(--cp-line);
-    background: #f8fafc;
-    color: #8491a5;
-    font-size: 0.69rem;
-    font-weight: 800;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    white-space: nowrap;
-}
-.officer-dashboard .table tbody td {
-    padding: 1rem 1.25rem;
-    border-color: #f0f3f7;
-    color: #526176;
-    vertical-align: middle;
-    font-size: 0.88rem;
-}
-.officer-dashboard .table tbody tr:last-child td {
-    border-bottom: 0;
-}
-.officer-dashboard .report-title {
-    color: var(--cp-ink);
-    font-weight: 700;
-}
-.officer-dashboard .report-id {
-    display: block;
-    margin-top: 0.2rem;
-    color: #9aa5b5;
-    font-size: 0.75rem;
-}
-.officer-dashboard .status-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.4rem 0.7rem;
-    border-radius: 999px;
-    background: #eef2f7;
-    color: #526176;
-    font-size: 0.75rem;
-    font-weight: 700;
-    white-space: nowrap;
-}
-.officer-dashboard .empty-state {
-    padding: 3.5rem 1rem;
-    text-align: center;
-}
-.officer-dashboard .empty-icon {
-    display: grid;
-    width: 58px;
-    height: 58px;
-    margin: 0 auto 1rem;
-    place-items: center;
-    border-radius: 18px;
-    background: #eef6f8;
-    color: #087e8b;
-    font-size: 1.4rem;
-}
-.officer-dashboard .btn-dashboard {
-    padding: 0.7rem 1rem;
-    border: 0;
-    border-radius: 11px;
-    background: #087e8b;
-    color: #fff;
-    font-size: 0.86rem;
-    font-weight: 700;
-    box-shadow: 0 5px 12px rgba(8, 126, 139, 0.16);
-}
-.officer-dashboard .btn-dashboard:hover {
-    background: #066b76;
-    color: #fff;
-}
-.officer-dashboard .btn-logout {
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    border-radius: 11px;
-    color: #fff;
-    font-size: 0.85rem;
-    font-weight: 700;
-}
-.officer-dashboard .btn-logout:hover {
-    border-color: #fff;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    border-color: rgba(96, 165, 250, 0.32);
+    box-shadow: 0 17px 35px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 767.98px) {
-    .officer-dashboard .dashboard-hero {
-        padding: 1.5rem;
-        border-radius: 19px;
+.officer-metric-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    color: #9aabc0;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.officer-metric-icon {
+    display: grid;
+    width: 39px;
+    height: 39px;
+    place-items: center;
+    border: 1px solid rgba(96, 165, 250, 0.16);
+    border-radius: 11px;
+    background: rgba(59, 130, 246, 0.12);
+    color: #7db5ff;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.officer-metric-value {
+    margin: 16px 0 5px;
+    color: #f8fafc;
+    font-size: 35px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1;
+}
+
+.officer-metric-foot {
+    color: #71839a;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.officer-metric-track {
+    height: 3px;
+    overflow: hidden;
+    margin-top: 19px;
+    border-radius: 99px;
+    background: rgba(148, 163, 184, 0.1);
+}
+
+.officer-metric-track span {
+    display: block;
+    width: 38%;
+    height: 100%;
+    border-radius: inherit;
+    background: #3b82f6;
+}
+
+.officer-metric-pending .officer-metric-icon {
+    border-color: rgba(251, 191, 36, 0.17);
+    background: rgba(245, 158, 11, 0.1);
+    color: #fbbf24;
+}
+.officer-metric-pending .officer-metric-track span {
+    background: #f59e0b;
+}
+.officer-metric-progress .officer-metric-icon {
+    border-color: rgba(34, 211, 238, 0.17);
+    background: rgba(6, 182, 212, 0.1);
+    color: #22d3ee;
+}
+.officer-metric-progress .officer-metric-track span {
+    background: #06b6d4;
+}
+.officer-metric-resolved .officer-metric-icon {
+    border-color: rgba(74, 222, 128, 0.17);
+    background: rgba(34, 197, 94, 0.1);
+    color: #4ade80;
+}
+.officer-metric-resolved .officer-metric-track span {
+    background: #22c55e;
+}
+
+/* RECENT REPORTS PANEL */
+.officer-reports-panel {
+    overflow: hidden;
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    border-radius: 16px;
+    background: rgba(13, 25, 43, 0.94);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+}
+
+.officer-panel-header {
+    align-items: center;
+    margin: 0;
+    padding: 23px 25px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.officer-view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 13px;
+    border: 1px solid rgba(59, 130, 246, 0.24);
+    border-radius: 9px;
+    background: rgba(37, 99, 235, 0.1);
+    color: #93c5fd;
+    font-size: 11px;
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.officer-view-all:hover {
+    border-color: rgba(96, 165, 250, 0.5);
+    background: rgba(37, 99, 235, 0.2);
+    color: #bfdbfe;
+}
+
+.officer-table-wrap {
+    width: 100%;
+}
+.officer-reports-table {
+    min-width: 760px;
+    margin: 0;
+    color: #cbd5e1;
+    --bs-table-bg: transparent;
+    --bs-table-color: #cbd5e1;
+    --bs-table-border-color: rgba(148, 163, 184, 0.09);
+    --bs-table-hover-bg: rgba(59, 130, 246, 0.045);
+    --bs-table-hover-color: #f1f5f9;
+}
+
+.officer-reports-table thead th {
+    padding: 14px 20px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.13);
+    background: rgba(7, 17, 31, 0.62);
+    color: #71839a;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    white-space: nowrap;
+}
+
+.officer-reports-table tbody td {
+    padding: 17px 20px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+    color: #aebdd0;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.officer-reports-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+.officer-reports-table tbody tr {
+    transition: background 0.2s ease;
+}
+.officer-reports-table tbody tr:hover {
+    background: rgba(59, 130, 246, 0.045);
+}
+
+.officer-report-title {
+    display: block;
+    max-width: 280px;
+    overflow: hidden;
+    color: #e5edf8;
+    font-size: 12px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.officer-report-id {
+    display: block;
+    margin-top: 5px;
+    color: #647991;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+}
+
+.officer-status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border: 1px solid rgba(96, 165, 250, 0.18);
+    border-radius: 999px;
+    background: rgba(59, 130, 246, 0.1);
+    color: #93c5fd;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* EMPTY STATE */
+.officer-empty-state {
+    padding: 58px 20px;
+    text-align: center;
+}
+
+.officer-empty-icon {
+    display: grid;
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 16px;
+    place-items: center;
+    border: 1px solid rgba(96, 165, 250, 0.18);
+    border-radius: 16px;
+    background: rgba(59, 130, 246, 0.1);
+    color: #60a5fa;
+    font-size: 25px;
+}
+
+.officer-empty-state h3 {
+    margin: 0 0 7px;
+    color: #e5edf8;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.officer-empty-state p {
+    margin: 0;
+    color: #8294aa;
+    font-size: 12px;
+}
+
+/* FOOTER */
+.officer-dashboard-footer {
+    padding: 25px 0 4px;
+    color: #52657d;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+    text-align: center;
+}
+
+.officer-dashboard-footer span {
+    padding: 0 7px;
+    color: #3b82f6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 991.98px) {
+    .officer-dashboard-page {
+        padding-top: 30px;
     }
-    .officer-dashboard .panel-header {
-        padding: 1rem;
+    .officer-dashboard-header {
+        align-items: flex-start;
+        flex-direction: column;
     }
-    .officer-dashboard .table thead th,
-    .officer-dashboard .table tbody td {
-        padding: 0.85rem;
+    .officer-header-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .officer-dashboard-container {
+        width: min(100% - 30px, 1480px);
+    }
+    .officer-dashboard-header {
+        margin-bottom: 32px;
+    }
+    .officer-header-copy h1 {
+        font-size: 31px;
+    }
+    .officer-header-copy p {
+        font-size: 12px;
+    }
+    .officer-header-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+    .officer-workspace-status,
+    .officer-logout-button {
+        justify-content: center;
+        width: 100%;
+    }
+    .officer-section-heading,
+    .officer-panel-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .officer-section-heading h2,
+    .officer-panel-header h2 {
+        font-size: 18px;
+    }
+    .officer-panel-header {
+        padding: 20px;
+    }
+    .officer-view-all {
+        width: 100%;
+        justify-content: center;
+    }
+    .officer-metric-card {
+        min-height: 160px;
+        padding: 16px;
+    }
+    .officer-metric-value {
+        font-size: 30px;
+    }
+    .officer-metric-top {
+        font-size: 11px;
+    }
+    .officer-metric-icon {
+        width: 34px;
+        height: 34px;
     }
 }

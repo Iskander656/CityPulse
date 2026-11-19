@@ -2,71 +2,119 @@
 
 @section('title', 'Review Report')
 
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/officer/reports/show.css') }}">
+@endpush
+
 @section('content')
-    <div class="container py-5">
+    <div class="officer-report-show-page">
+        <div class="container officer-report-show-container">
 
-        <a href="{{ route('officer.reports.index') }}" class="btn btn-outline-secondary mb-4">
-            ← Back to Reports
-        </a>
+            <div class="officer-report-show-topbar">
+                <div>
+                    <span class="officer-report-show-eyebrow">Department Operations / Report Review</span>
+                    <h1>Report Details</h1>
+                    <p>Review the submitted information, update its status, and track activity.</p>
+                </div>
 
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
+                <a href="{{ route('officer.reports.index') }}" class="officer-report-show-back">
+                    <span aria-hidden="true">←</span>
+                    Back to Reports
+                </a>
             </div>
-        @endif
 
-        <div class="card border-0 shadow-sm mb-4">
-            <div class="card-body p-4">
+            @if (session('success'))
+                <div class="officer-report-show-alert officer-report-show-alert-success" role="alert">
+                    <span class="officer-report-show-alert-icon" aria-hidden="true">✓</span>
+                    {{ session('success') }}
+                </div>
+            @endif
 
-                <h3 class="fw-bold">{{ $report->title }}</h3>
+            <section class="officer-report-show-card officer-report-show-details-card">
+                <div class="officer-report-show-card-heading">
+                    <div>
+                        <span class="officer-report-show-section-label">Submitted Report</span>
+                        <h2>{{ $report->title }}</h2>
+                        <p class="officer-report-show-meta">
+                            Report #{{ $report->id }}
+                            <span>·</span>
+                            Submitted {{ $report->created_at->format('d M Y H:i') }}
+                        </p>
+                    </div>
+                    <div class="officer-report-show-current-status">
+                        <span>Current status</span>
+                        <strong>{{ $report->status->name }}</strong>
+                    </div>
+                </div>
 
-                <p class="text-muted">
-                    Report #{{ $report->id }} |
-                    Submitted {{ $report->created_at->format('d M Y H:i') }}
-                </p>
+                <div class="officer-report-show-divider"></div>
 
-                <hr>
+                <div class="officer-report-show-information-grid">
+                    <div class="officer-report-show-information-item">
+                        <span>Citizen</span>
+                        <strong>{{ $report->user->name }}</strong>
+                    </div>
+                    <div class="officer-report-show-information-item">
+                        <span>Category</span>
+                        <strong>{{ $report->category->name }}</strong>
+                    </div>
+                    <div class="officer-report-show-information-item">
+                        <span>Address</span>
+                        <strong>{{ $report->address ?? 'Not provided' }}</strong>
+                    </div>
+                    <div class="officer-report-show-information-item">
+                        <span>Latitude</span>
+                        <strong>{{ $report->latitude }}</strong>
+                    </div>
+                    <div class="officer-report-show-information-item">
+                        <span>Longitude</span>
+                        <strong>{{ $report->longitude }}</strong>
+                    </div>
+                </div>
 
-                <p><strong>Citizen:</strong> {{ $report->user->name }}</p>
-                <p><strong>Category:</strong> {{ $report->category->name }}</p>
-                <p><strong>Status:</strong> {{ $report->status->name }}</p>
-                <p><strong>Address:</strong> {{ $report->address ?? 'Not provided' }}</p>
-
-                <h5 class="mt-4">Description</h5>
-                <p>{{ $report->description }}</p>
-
-                <h5 class="mt-4">Location</h5>
-                <p>
-                    Latitude: {{ $report->latitude }}<br>
-                    Longitude: {{ $report->longitude }}
-                </p>
+                <div class="officer-report-show-description">
+                    <span class="officer-report-show-section-label">Description</span>
+                    <p>{{ $report->description }}</p>
+                </div>
 
                 @if ($report->images->isNotEmpty())
-                    <h5 class="mt-4">Attached Images</h5>
-
-                    <div class="row g-3">
-                        @foreach ($report->images as $image)
-                            <div class="col-md-4">
-                                <a href="{{ asset('storage/' . $image->image_path) }}" target="_blank">
-                                    <img src="{{ asset('storage/' . $image->image_path) }}" class="img-fluid rounded"
-                                        alt="Report image">
-                                </a>
+                    <div class="officer-report-show-attachments">
+                        <div class="officer-report-show-subheading">
+                            <div>
+                                <span class="officer-report-show-section-label">Evidence</span>
+                                <h3>Attached Images</h3>
                             </div>
-                        @endforeach
+                            <span class="officer-report-show-attachment-count">{{ $report->images->count() }}
+                                {{ $report->images->count() === 1 ? 'image' : 'images' }}</span>
+                        </div>
+
+                        <div class="officer-report-show-image-grid">
+                            @foreach ($report->images as $image)
+                                <a href="{{ asset('storage/' . $image->image_path) }}" target="_blank"
+                                    rel="noopener noreferrer" class="officer-report-show-image-link">
+                                    <img src="{{ asset('storage/' . $image->image_path) }}" alt="Report image">
+                                    <span>View image ↗</span>
+                                </a>
+                            @endforeach
+                        </div>
                     </div>
                 @endif
+            </section>
 
-            </div>
-        </div>
-
-        <div class="card border-0 shadow-sm mb-4">
-            <div class="card-body p-4">
-
-                <h4 class="fw-bold mb-3">Update Report</h4>
+            <section class="officer-report-show-card officer-report-show-update-card">
+                <div class="officer-report-show-card-title">
+                    <div>
+                        <span class="officer-report-show-section-label">Case Management</span>
+                        <h2>Update Report</h2>
+                        <p>Record the latest progress and keep the citizen informed.</p>
+                    </div>
+                    <span class="officer-report-show-title-mark" aria-hidden="true">↗</span>
+                </div>
 
                 @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul class="mb-0">
+                    <div class="officer-report-show-alert officer-report-show-alert-error" role="alert">
+                        <strong>Please review the following:</strong>
+                        <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
                             @endforeach
@@ -75,19 +123,23 @@
                 @endif
 
                 @if ($report->status->is_final)
-                    <div class="alert alert-info mb-0">
-                        This report is closed and cannot be updated.
+                    <div class="officer-report-show-closed-notice">
+                        <span aria-hidden="true">✓</span>
+                        <div>
+                            <strong>This report is closed</strong>
+                            <p>This report is closed and cannot be updated.</p>
+                        </div>
                     </div>
                 @else
-                    <form method="POST" action="{{ route('officer.reports.update', $report) }}">
-
+                    <form method="POST" action="{{ route('officer.reports.update', $report) }}"
+                        class="officer-report-show-form">
                         @csrf
                         @method('PATCH')
 
-                        <div class="mb-3">
-                            <label class="form-label">New Status</label>
-
-                            <select name="status_id" class="form-select" required>
+                        <div class="officer-report-show-form-group">
+                            <label for="officer-report-status" class="officer-report-show-label">New Status</label>
+                            <select id="officer-report-status" name="status_id" class="officer-report-show-control"
+                                required>
                                 @foreach ($statuses as $status)
                                     <option value="{{ $status->id }}" @selected(old('status_id', $report->status_id) == $status->id)>
                                         {{ $status->name }}
@@ -96,52 +148,61 @@
                             </select>
                         </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Update Notes</label>
-
-                            <textarea name="notes" class="form-control" rows="4" maxlength="1000"
-                                placeholder="Describe the progress or action taken...">{{ old('notes') }}</textarea>
-
-                            <small class="text-muted">
-                                These updates are also visible in the citizen's activity timeline.
-                            </small>
+                        <div class="officer-report-show-form-group">
+                            <label for="officer-report-notes" class="officer-report-show-label">Update Notes</label>
+                            <textarea id="officer-report-notes" name="notes" class="officer-report-show-control officer-report-show-textarea"
+                                rows="4" maxlength="1000" placeholder="Describe the progress or action taken...">{{ old('notes') }}</textarea>
+                            <small class="officer-report-show-help">These updates are also visible in the citizen's activity
+                                timeline.</small>
                         </div>
 
-                        <button type="submit" class="btn btn-dark">
-                            Save Update
-                        </button>
-
+                        <div class="officer-report-show-form-actions">
+                            <button type="submit" class="officer-report-show-submit">
+                                Save Update <span aria-hidden="true">→</span>
+                            </button>
+                        </div>
                     </form>
                 @endif
+            </section>
 
-            </div>
-        </div>
-
-        <div class="card border-0 shadow-sm">
-            <div class="card-body p-4">
-
-                <h4 class="fw-bold mb-4">Activity History</h4>
-
-                @forelse ($report->activities->sortByDesc('created_at') as $activity)
-                    <div class="border-start border-3 ps-3 mb-4">
-                        <strong>
-                            {{ str($activity->activity_type->value)->replace('_', ' ')->title() }}
-                        </strong>
-
-                        <p class="mb-1">{{ $activity->description }}</p>
-
-                        <small class="text-muted">
-                            {{ $activity->user->name ?? 'System' }}
-                            ·
-                            {{ $activity->created_at->format('d M Y H:i') }}
-                        </small>
+            <section class="officer-report-show-card officer-report-show-activity-card">
+                <div class="officer-report-show-card-title">
+                    <div>
+                        <span class="officer-report-show-section-label">Report Timeline</span>
+                        <h2>Activity History</h2>
+                        <p>A chronological record of actions and updates.</p>
                     </div>
-                @empty
-                    <p class="text-muted">No activity recorded.</p>
-                @endforelse
+                    <span class="officer-report-show-title-mark" aria-hidden="true">◷</span>
+                </div>
 
+                <div class="officer-report-show-timeline">
+                    @forelse ($report->activities->sortByDesc('created_at') as $activity)
+                        <article class="officer-report-show-activity">
+                            <span class="officer-report-show-timeline-dot" aria-hidden="true"></span>
+                            <div class="officer-report-show-activity-content">
+                                <div class="officer-report-show-activity-heading">
+                                    <strong>{{ str($activity->activity_type->value)->replace('_', ' ')->title() }}</strong>
+                                    <time>{{ $activity->created_at->format('d M Y H:i') }}</time>
+                                </div>
+                                <p>{{ $activity->description }}</p>
+                                <span class="officer-report-show-activity-user">By
+                                    {{ $activity->user->name ?? 'System' }}</span>
+                            </div>
+                        </article>
+                    @empty
+                        <div class="officer-report-show-no-activity">
+                            <span aria-hidden="true">◷</span>
+                            <p>No activity recorded.</p>
+                        </div>
+                    @endforelse
+                </div>
+            </section>
+
+            <div class="officer-report-show-footer">
+                <span>CityPulse</span>
+                <span>Officer Workspace · Report Review</span>
             </div>
-        </div>
 
+        </div>
     </div>
 @endsection

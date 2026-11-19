@@ -1,0 +1,223 @@
+.admin-department-edit {
+    background-color: #0b1437;
+    color: #cfd8f7;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+}
+
+.admin-department-edit .page-header {
+    max-width: 900px;
+    margin: 0 auto 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #1f2a6b;
+}
+
+.admin-department-edit .page-header h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem;
+    color: #a3c4f3;
+}
+
+.admin-department-edit .page-header p {
+    font-size: 1rem;
+    color: #8ca4d9;
+    margin: 0;
+}
+
+.admin-department-edit .back-link {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: #72a8ff;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition:
+        border-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.admin-department-edit .back-link:hover,
+.admin-department-edit .back-link:focus {
+    color: #a4c8ff;
+    border-color: #a4c8ff;
+    outline: none;
+}
+
+.admin-department-edit .department-identity {
+    background-color: #142150;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    max-width: 900px;
+    margin: 0 auto 2.5rem;
+    box-shadow: 0 4px 12px rgba(20, 33, 80, 0.5);
+    border: 1px solid #1f2a6b;
+}
+
+.admin-department-edit .department-identity h2 {
+    font-size: 1.75rem;
+    margin: 0 0 0.5rem;
+    color: #9ec1ff;
+    font-weight: 600;
+}
+
+.admin-department-edit .department-identity p {
+    margin: 0;
+    font-size: 1.05rem;
+    color: #a8b9d9;
+}
+
+.admin-department-edit form {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #142150;
+    border-radius: 12px;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 6px 18px rgba(20, 33, 80, 0.6);
+    border: 1px solid #1f2a6b;
+    box-sizing: border-box;
+}
+
+.admin-department-edit form .form-group {
+    margin-bottom: 1.75rem;
+}
+
+.admin-department-edit form label {
+    display: block;
+    font-weight: 600;
+    color: #a3c4f3;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.admin-department-edit form input[type="text"],
+.admin-department-edit form input[type="email"],
+.admin-department-edit form textarea {
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1.5px solid #2a3a83;
+    background-color: #1b275f;
+    color: #d1d9f7;
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    box-sizing: border-box;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 3.5rem;
+}
+
+.admin-department-edit form textarea {
+    min-height: 6rem;
+    line-height: 1.4;
+}
+
+.admin-department-edit form input[type="text"]:focus,
+.admin-department-edit form input[type="email"]:focus,
+.admin-department-edit form textarea:focus {
+    border-color: #4da6ff;
+    box-shadow: 0 0 8px 2px rgba(77, 166, 255, 0.5);
+    outline: none;
+    background-color: #1f2d7a;
+    color: #e1e9ff;
+}
+
+.admin-department-edit form .validation-error {
+    margin-top: 0.35rem;
+    font-size: 0.875rem;
+    color: #ff6b6b;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.admin-department-edit form .validation-error:empty {
+    display: none;
+}
+
+.admin-department-edit form input[type="text"].is-invalid,
+.admin-department-edit form input[type="email"].is-invalid,
+.admin-department-edit form textarea.is-invalid {
+    border-color: #ff4c4c;
+    background-color: #3f1f1f;
+    color: #ffb3b3;
+}
+
+.admin-department-edit form .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.admin-department-edit form button[type="submit"],
+.admin-department-edit form button[type="button"] {
+    background-color: #3a5bdc;
+    color: #e0e7ff;
+    border: none;
+    border-radius: 10px;
+    padding: 0.7rem 1.8rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+    box-shadow: 0 3px 8px rgba(58, 91, 220, 0.7);
+    user-select: none;
+}
+
+.admin-department-edit form button[type="submit"]:hover,
+.admin-department-edit form button[type="submit"]:focus,
+.admin-department-edit form button[type="button"]:hover,
+.admin-department-edit form button[type="button"]:focus {
+    background-color: #5b7dff;
+    box-shadow: 0 5px 14px rgba(91, 125, 255, 0.85);
+    outline: none;
+}
+
+.admin-department-edit form button[type="submit"]:disabled {
+    background-color: #2a3a83;
+    cursor: not-allowed;
+    box-shadow: none;
+    color: #7a8dbf;
+}
+
+@media (max-width: 600px) {
+    .admin-department-edit {
+        padding: 1.5rem 1rem;
+    }
+
+    .admin-department-edit .page-header {
+        padding-bottom: 0.75rem;
+    }
+
+    .admin-department-edit .page-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .admin-department-edit .department-identity {
+        padding: 1rem 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .admin-department-edit form {
+        padding: 1.5rem 1.5rem;
+    }
+
+    .admin-department-edit form .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-department-edit form button[type="submit"],
+    .admin-department-edit form button[type="button"] {
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.65rem 0;
+    }
+}
