@@ -1,0 +1,264 @@
+.officer-dashboard {
+    --cp-ink: #17243b;
+    --cp-muted: #718096;
+    --cp-line: #e8edf4;
+    --cp-surface: #ffffff;
+    --cp-bg: #f4f7fb;
+    color: var(--cp-ink);
+}
+
+.officer-dashboard .dashboard-hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    padding: 2rem;
+    color: #fff;
+    background: linear-gradient(120deg, #10243e 0%, #173f60 58%, #087e8b 100%);
+    box-shadow: 0 16px 38px rgba(18, 48, 78, 0.16);
+}
+
+.officer-dashboard .dashboard-hero::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    right: -75px;
+    top: -135px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 28px rgba(255, 255, 255, 0.035),
+        0 0 0 58px rgba(255, 255, 255, 0.025);
+    pointer-events: none;
+}
+
+.officer-dashboard .hero-content {
+    position: relative;
+    z-index: 1;
+}
+.officer-dashboard .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #b8e9e8;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+.officer-dashboard .hero-title {
+    margin: 0.65rem 0 0.45rem;
+    font-size: clamp(1.65rem, 3vw, 2.35rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+.officer-dashboard .hero-subtitle {
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 620px;
+}
+.officer-dashboard .hero-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.09);
+    color: #e7ffff;
+    font-size: 0.82rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.officer-dashboard .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #63e6be;
+    box-shadow: 0 0 0 4px rgba(99, 230, 190, 0.15);
+}
+.officer-dashboard .section-label {
+    color: #8491a5;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+.officer-dashboard .metric-card {
+    height: 100%;
+    padding: 1.25rem;
+    border: 1px solid var(--cp-line);
+    border-radius: 18px;
+    background: var(--cp-surface);
+    box-shadow: 0 5px 18px rgba(25, 45, 75, 0.035);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+.officer-dashboard .metric-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(25, 45, 75, 0.08);
+}
+.officer-dashboard .metric-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+.officer-dashboard .metric-icon {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 13px;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+.officer-dashboard .metric-number {
+    margin: 1rem 0 0.15rem;
+    color: var(--cp-ink);
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+}
+.officer-dashboard .metric-caption {
+    color: var(--cp-muted);
+    font-size: 0.88rem;
+}
+.officer-dashboard .metric-total .metric-icon {
+    color: #2764c5;
+    background: #eaf1ff;
+}
+.officer-dashboard .metric-pending .metric-icon {
+    color: #b7791f;
+    background: #fff5df;
+}
+.officer-dashboard .metric-progress .metric-icon {
+    color: #087e8b;
+    background: #e3f7f7;
+}
+.officer-dashboard .metric-resolved .metric-icon {
+    color: #16845b;
+    background: #e4f7ee;
+}
+.officer-dashboard .reports-panel {
+    overflow: hidden;
+    border: 1px solid var(--cp-line);
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 7px 24px rgba(25, 45, 75, 0.045);
+}
+.officer-dashboard .panel-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--cp-line);
+}
+.officer-dashboard .panel-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+.officer-dashboard .panel-subtitle {
+    margin: 0.25rem 0 0;
+    color: var(--cp-muted);
+    font-size: 0.84rem;
+}
+.officer-dashboard .table {
+    margin: 0;
+}
+.officer-dashboard .table thead th {
+    padding: 0.9rem 1.25rem;
+    border-bottom: 1px solid var(--cp-line);
+    background: #f8fafc;
+    color: #8491a5;
+    font-size: 0.69rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.officer-dashboard .table tbody td {
+    padding: 1rem 1.25rem;
+    border-color: #f0f3f7;
+    color: #526176;
+    vertical-align: middle;
+    font-size: 0.88rem;
+}
+.officer-dashboard .table tbody tr:last-child td {
+    border-bottom: 0;
+}
+.officer-dashboard .report-title {
+    color: var(--cp-ink);
+    font-weight: 700;
+}
+.officer-dashboard .report-id {
+    display: block;
+    margin-top: 0.2rem;
+    color: #9aa5b5;
+    font-size: 0.75rem;
+}
+.officer-dashboard .status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.7rem;
+    border-radius: 999px;
+    background: #eef2f7;
+    color: #526176;
+    font-size: 0.75rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+.officer-dashboard .empty-state {
+    padding: 3.5rem 1rem;
+    text-align: center;
+}
+.officer-dashboard .empty-icon {
+    display: grid;
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 1rem;
+    place-items: center;
+    border-radius: 18px;
+    background: #eef6f8;
+    color: #087e8b;
+    font-size: 1.4rem;
+}
+.officer-dashboard .btn-dashboard {
+    padding: 0.7rem 1rem;
+    border: 0;
+    border-radius: 11px;
+    background: #087e8b;
+    color: #fff;
+    font-size: 0.86rem;
+    font-weight: 700;
+    box-shadow: 0 5px 12px rgba(8, 126, 139, 0.16);
+}
+.officer-dashboard .btn-dashboard:hover {
+    background: #066b76;
+    color: #fff;
+}
+.officer-dashboard .btn-logout {
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 11px;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+.officer-dashboard .btn-logout:hover {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+@media (max-width: 767.98px) {
+    .officer-dashboard .dashboard-hero {
+        padding: 1.5rem;
+        border-radius: 19px;
+    }
+    .officer-dashboard .panel-header {
+        padding: 1rem;
+    }
+    .officer-dashboard .table thead th,
+    .officer-dashboard .table tbody td {
+        padding: 0.85rem;
+    }
+}

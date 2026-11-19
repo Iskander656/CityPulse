@@ -1,35 +1,32 @@
-<div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-5">
-
-    <div>
-        <div class="d-flex align-items-center gap-2 mb-2">
-            <span class="text-danger fw-bold small">CITYPULSE</span>
-            <span class="cc-muted small">/</span>
-            <span class="cc-muted small">OPERATIONS</span>
+<header class="admin-header d-flex justify-content-between align-items-center flex-wrap gap-4 mb-5">
+    <div class="admin-header__identity">
+        <div class="admin-header__eyebrow d-flex align-items-center gap-2 mb-2">
+            <span class="admin-header__brand">CITYPULSE</span>
+            <span class="admin-header__separator">/</span>
+            <span class="admin-header__section">OPERATIONS</span>
         </div>
 
-        <h1 class="fw-bold mb-1" style="letter-spacing:-1px;">
+        <h1 class="admin-header__title mb-2">
             Command Centre
         </h1>
 
-        <p class="cc-muted mb-0">
+        <p class="admin-header__subtitle mb-0">
             Citywide monitoring and operational intelligence.
         </p>
     </div>
 
-    <div class="d-flex align-items-center gap-3 flex-wrap">
-
-        <div class="cc-live">
-            <span class="cc-live-dot"></span>
-            SYSTEM OPERATIONAL
+    <div class="admin-header__actions d-flex align-items-center gap-3 flex-wrap">
+        <div class="admin-header__system-status" role="status" aria-label="System operational">
+            <span class="admin-header__status-dot"></span>
+            <span>SYSTEM OPERATIONAL</span>
         </div>
 
-        <form action="{{ route('logout') }}" method="POST">
+        <form action="{{ route('logout') }}" method="POST" class="m-0">
             @csrf
-            <button class="btn btn-outline-danger cc-btn">
-                Logout
+            <button type="submit" class="admin-header__logout">
+                <span>Logout</span>
+                <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
             </button>
         </form>
-
     </div>
-
-</div>
+</header>

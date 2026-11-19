@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/leaflet.css') }}">
     <link rel="stylesheet" href="{{ asset('css/maps/citypulse-map.css') }}">
     <link rel="stylesheet" href="{{ asset('css/reports/report-form.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/officer/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/citizen/dashboard.css') }}">
     @stack('styles')
 </head>
 

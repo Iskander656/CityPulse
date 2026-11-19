@@ -1,43 +1,58 @@
-<div class="row g-4 mb-4">
+<div class="admin-charts-grid mb-4">
 
     {{-- Department Workload --}}
-    <div class="col-12 col-xl-6">
-        <div class="card border-0 shadow-sm rounded-4 h-100">
-            <div class="card-body p-4">
-                <h5 class="fw-bold mb-1">Department Workload</h5>
-                <p class="text-muted small mb-4">Reports assigned to each department</p>
-                <div style="height: 300px;">
-                    <canvas id="departmentChart"></canvas>
-                </div>
+    <section class="admin-chart-card admin-chart-card--workload">
+        <div class="admin-chart-card__header">
+            <div>
+                <div class="admin-section-eyebrow">RESOURCE ALLOCATION</div>
+                <h5 class="admin-chart-card__title mt-2 mb-1">Department Workload</h5>
+                <p class="admin-chart-card__subtitle mb-0">Reports assigned to each department</p>
             </div>
+            <span class="admin-chart-card__icon admin-chart-card__icon--blue" aria-hidden="true">
+                <i class="bi bi-bar-chart-line"></i>
+            </span>
         </div>
-    </div>
+
+        <div class="admin-chart-card__canvas">
+            <canvas id="departmentChart" aria-label="Department workload chart" role="img"></canvas>
+        </div>
+    </section>
 
     {{-- Monthly Trends --}}
-    <div class="col-12 col-xl-6">
-        <div class="card border-0 shadow-sm rounded-4 h-100">
-            <div class="card-body p-4">
-                <h5 class="fw-bold mb-1">Monthly Reporting Trends</h5>
-                <p class="text-muted small mb-4">Reports submitted over the last six months</p>
-                <div style="height: 300px;">
-                    <canvas id="monthlyChart"></canvas>
-                </div>
+    <section class="admin-chart-card admin-chart-card--trends">
+        <div class="admin-chart-card__header">
+            <div>
+                <div class="admin-section-eyebrow">CITY ACTIVITY</div>
+                <h5 class="admin-chart-card__title mt-2 mb-1">Monthly Reporting Trends</h5>
+                <p class="admin-chart-card__subtitle mb-0">Reports submitted over the last six months</p>
             </div>
+            <span class="admin-chart-card__icon admin-chart-card__icon--teal" aria-hidden="true">
+                <i class="bi bi-graph-up-arrow"></i>
+            </span>
         </div>
-    </div>
+
+        <div class="admin-chart-card__canvas">
+            <canvas id="monthlyChart" aria-label="Monthly reporting trends chart" role="img"></canvas>
+        </div>
+    </section>
 
     {{-- Report Categories --}}
-    <div class="col-12 col-xl-5">
-        <div class="card border-0 shadow-sm rounded-4 h-100">
-            <div class="card-body p-4">
-                <h5 class="fw-bold mb-1">Report Categories</h5>
-                <p class="text-muted small mb-4">Most frequently reported issues</p>
-                <div style="height: 300px;">
-                    <canvas id="categoryChart"></canvas>
-                </div>
+    <section class="admin-chart-card admin-chart-card--categories">
+        <div class="admin-chart-card__header">
+            <div>
+                <div class="admin-section-eyebrow">ISSUE DISTRIBUTION</div>
+                <h5 class="admin-chart-card__title mt-2 mb-1">Report Categories</h5>
+                <p class="admin-chart-card__subtitle mb-0">Most frequently reported issues</p>
             </div>
+            <span class="admin-chart-card__icon admin-chart-card__icon--violet" aria-hidden="true">
+                <i class="bi bi-pie-chart"></i>
+            </span>
         </div>
-    </div>
+
+        <div class="admin-chart-card__canvas admin-chart-card__canvas--donut">
+            <canvas id="categoryChart" aria-label="Report categories chart" role="img"></canvas>
+        </div>
+    </section>
 
 </div>
 

@@ -6,6 +6,7 @@ use App\Models\Role;
 use App\Models\User;
 use Database\Seeders\CategorySeeder;
 use Database\Seeders\DepartmentSeeder;
+use Database\Seeders\OfficerSeeder;
 use Database\Seeders\ReportStatusSeeder;
 use Database\Seeders\RoleSeeder;
 use Illuminate\Database\Seeder;
@@ -22,6 +23,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             DepartmentSeeder::class,
             ReportStatusSeeder::class,
+            OfficerSeeder::class,
         ]);
     }
 }

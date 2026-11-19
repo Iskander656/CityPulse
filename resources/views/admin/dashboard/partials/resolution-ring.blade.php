@@ -4,57 +4,48 @@
     $offset = $circumference * (1 - $safeResolutionRate / 100);
 @endphp
 
-<div class="cc-panel text-center">
-
-    <div class="d-flex justify-content-between align-items-center">
-
+<section class="admin-resolution-card cc-panel text-center">
+    <div class="admin-resolution-card__header d-flex justify-content-between align-items-center">
         <div class="text-start">
-            <div class="cc-label">Overall Performance</div>
-            <h5 class="fw-bold mt-2 mb-0">Resolution Rate</h5>
+            <div class="admin-section-eyebrow">OVERALL PERFORMANCE</div>
+            <h5 class="admin-resolution-card__title mt-2 mb-0">Resolution Rate</h5>
         </div>
 
-        <div class="cc-icon-box text-success">◉</div>
-
+        <div class="admin-resolution-card__icon" aria-hidden="true">
+            <i class="bi bi-check2-circle"></i>
+        </div>
     </div>
 
-    <div class="cc-ring" style="width:210px;height:210px;margin-top:30px;">
-
-        <svg viewBox="0 0 100 100">
-
-            <circle class="track" cx="50" cy="50" r="45" stroke-width="7" />
-
-            <circle class="progress" cx="50" cy="50" r="45" stroke="#22c55e" stroke-width="7"
-                stroke-dasharray="{{ $circumference }}" stroke-dashoffset="{{ $offset }}"
-                style="filter:drop-shadow(0 0 5px #22c55e);" />
-
+    <div class="admin-resolution-ring">
+        <svg viewBox="0 0 100 100" role="img" aria-label="{{ $resolutionRate }} percent of reports resolved">
+            <circle class="admin-resolution-ring__track" cx="50" cy="50" r="45" />
+            <circle
+                class="admin-resolution-ring__progress"
+                cx="50"
+                cy="50"
+                r="45"
+                stroke-dasharray="{{ $circumference }}"
+                stroke-dashoffset="{{ $offset }}"
+            />
         </svg>
 
-        <div class="cc-ring-content">
-
-            <div class="cc-ring-number text-success">
-                {{ $resolutionRate }}%
-            </div>
-
-            <div class="cc-muted small">RESOLVED</div>
-
+        <div class="admin-resolution-ring__content">
+            <div class="admin-resolution-ring__number">{{ $resolutionRate }}%</div>
+            <div class="admin-resolution-ring__caption">RESOLVED</div>
         </div>
-
     </div>
 
-    <div class="row mt-3">
-
-        <div class="col-6 border-end border-secondary">
-            <h4 class="fw-bold mb-1">{{ $resolvedReports }}</h4>
-            <div class="cc-muted small">Resolved reports</div>
+    <div class="admin-resolution-stats row mt-3">
+        <div class="col-6 admin-resolution-stats__item">
+            <h4 class="admin-resolution-stats__value mb-1">{{ $resolvedReports }}</h4>
+            <div class="admin-resolution-stats__label">Resolved reports</div>
         </div>
 
-        <div class="col-6">
-            <h4 class="fw-bold mb-1">
+        <div class="col-6 admin-resolution-stats__item">
+            <h4 class="admin-resolution-stats__value mb-1">
                 {{ $totalReports - $resolvedReports - $rejectedReports }}
             </h4>
-            <div class="cc-muted small">Active reports</div>
+            <div class="admin-resolution-stats__label">Active reports</div>
         </div>
-
     </div>
-
-</div>
+</section>
