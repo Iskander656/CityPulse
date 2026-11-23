@@ -12,7 +12,8 @@
             <div class="admin-report-details-header__main">
                 <span class="admin-report-details-eyebrow">CITYPULSE / REPORT MANAGEMENT</span>
                 <h1 class="admin-report-details-header__title">Report <span>#{{ $report->id }}</span></h1>
-                <p class="admin-report-details-header__subtitle">Review the submitted issue, inspect AI recommendations, and manage its assignment.</p>
+                <p class="admin-report-details-header__subtitle">Review the submitted issue, inspect AI recommendations, and
+                    manage its assignment.</p>
             </div>
 
             <a href="{{ route('admin.reports.index') }}" class="admin-report-details-back">
@@ -60,7 +61,8 @@
                             </div>
                             <div class="admin-report-detail-block">
                                 <span class="admin-report-detail-label"><i class="bi bi-crosshair"></i> Coordinates</span>
-                                <strong class="admin-report-detail-value admin-report-coordinates">{{ $report->latitude }}, {{ $report->longitude }}</strong>
+                                <strong class="admin-report-detail-value admin-report-coordinates">{{ $report->latitude }},
+                                    {{ $report->longitude }}</strong>
                             </div>
                             <div class="admin-report-detail-block">
                                 <span class="admin-report-detail-label"><i class="bi bi-activity"></i> Current Status</span>
@@ -73,7 +75,8 @@
                 <section class="admin-report-card admin-report-ai-card">
                     <div class="admin-report-card__header">
                         <div class="admin-report-card__heading-with-icon">
-                            <span class="admin-report-section-icon admin-report-section-icon--ai"><i class="bi bi-robot"></i></span>
+                            <span class="admin-report-section-icon admin-report-section-icon--ai"><i
+                                    class="bi bi-robot"></i></span>
                             <div>
                                 <span class="admin-report-card__eyebrow">INTELLIGENCE INSIGHTS</span>
                                 <h2 class="admin-report-card__title">CityPulse AI Analysis</h2>
@@ -101,10 +104,12 @@
 
                             <div class="admin-report-ai-verdict">
                                 @if ($report->category->name === $report->ai_suggested_category)
-                                    <span class="admin-report-ai-verdict__icon admin-report-ai-verdict__icon--success"><i class="bi bi-check-lg"></i></span>
+                                    <span class="admin-report-ai-verdict__icon admin-report-ai-verdict__icon--success"><i
+                                            class="bi bi-check-lg"></i></span>
                                     <span>AI recommendation matches citizen category</span>
                                 @else
-                                    <span class="admin-report-ai-verdict__icon admin-report-ai-verdict__icon--warning"><i class="bi bi-exclamation-lg"></i></span>
+                                    <span class="admin-report-ai-verdict__icon admin-report-ai-verdict__icon--warning"><i
+                                            class="bi bi-exclamation-lg"></i></span>
                                     <span>AI recommendation differs — review suggested</span>
                                 @endif
                             </div>
@@ -115,14 +120,91 @@
                             </div>
                         @endif
 
-                        <p class="admin-report-ai-disclaimer"><i class="bi bi-shield-check"></i> AI provides a recommendation only. The citizen-selected category remains unchanged unless an administrator reviews and updates it.</p>
+                        <p class="admin-report-ai-disclaimer"><i class="bi bi-shield-check"></i> AI provides a
+                            recommendation only. The citizen-selected category remains unchanged unless an administrator
+                            reviews and updates it.</p>
                     </div>
                 </section>
+
+                {{-- AI OFFICER ASSIGNMENT --}}
+                @if ($report->assignedOfficer)
+                    <div class="admin-report-card">
+
+                        <div class="admin-report-card__header">
+
+                            <div class="admin-report-card__heading-with-icon">
+
+                                <div class="admin-report-section-icon admin-report-section-icon--assignment">
+                                    <i class="bi bi-person-check-fill"></i>
+                                </div>
+
+                                <div>
+                                    <span class="admin-report-card__eyebrow">
+                                        INTELLIGENCE INSIGHTS
+                                    </span>
+
+                                    <h3 class="admin-report-card__title">
+                                        AI Officer Assignment
+                                    </h3>
+                                </div>
+
+                            </div>
+
+                            <span class="admin-report-ai-badge">
+                                AUTOMATED
+                            </span>
+
+                        </div>
+
+                        <div class="admin-report-card__body">
+
+                            <div class="admin-report-info-grid">
+
+                                <div class="admin-report-detail-block">
+                                    <span class="admin-report-detail-label">
+                                        <i class="bi bi-person"></i>
+                                        ASSIGNED OFFICER
+                                    </span>
+
+                                    <span class="admin-report-detail-value">
+                                        {{ $report->assignedOfficer->name }}
+                                    </span>
+                                </div>
+
+                                <div class="admin-report-detail-block">
+                                    <span class="admin-report-detail-label">
+                                        <i class="bi bi-building"></i>
+                                        ASSIGNED DEPARTMENT
+                                    </span>
+
+                                    <span class="admin-report-detail-value">
+                                        {{ \App\Models\Department::find($report->assigned_department_id)?->name ?? 'Unassigned' }}
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            <div class="admin-report-detail-block mt-3">
+
+                                <span class="admin-report-detail-label">
+                                    <i class="bi bi-cpu"></i>
+                                    AI ASSIGNMENT DECISION
+                                </span>
+
+                                <p class="admin-report-description">
+                                    The officer was selected based on department compatibility
+                                    and relative workload among eligible officers.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                @endif
 
                 <section class="admin-report-card admin-report-images-card">
                     <div class="admin-report-card__header">
                         <div class="admin-report-card__heading-with-icon">
-                            <span class="admin-report-section-icon admin-report-section-icon--images"><i class="bi bi-images"></i></span>
+                            <span class="admin-report-section-icon admin-report-section-icon--images"><i
+                                    class="bi bi-images"></i></span>
                             <div>
                                 <span class="admin-report-card__eyebrow">VISUAL EVIDENCE</span>
                                 <h2 class="admin-report-card__title">Report Images</h2>
@@ -133,9 +215,12 @@
                     <div class="admin-report-card__body">
                         <div class="admin-report-image-grid">
                             @forelse($report->images as $image)
-                                <a href="{{ asset('storage/' . $image->image_path) }}" target="_blank" rel="noopener noreferrer" class="admin-report-image-link">
-                                    <img src="{{ asset('storage/' . $image->image_path) }}" class="admin-report-image" alt="Report image">
-                                    <span class="admin-report-image-overlay"><i class="bi bi-arrows-fullscreen"></i> View image</span>
+                                <a href="{{ asset('storage/' . $image->image_path) }}" target="_blank"
+                                    rel="noopener noreferrer" class="admin-report-image-link">
+                                    <img src="{{ asset('storage/' . $image->image_path) }}" class="admin-report-image"
+                                        alt="Report image">
+                                    <span class="admin-report-image-overlay"><i class="bi bi-arrows-fullscreen"></i> View
+                                        image</span>
                                 </a>
                             @empty
                                 <div class="admin-report-empty-state admin-report-empty-state--images">
@@ -153,7 +238,8 @@
                 <section class="admin-report-card admin-report-assignment-card">
                     <div class="admin-report-card__header">
                         <div class="admin-report-card__heading-with-icon">
-                            <span class="admin-report-section-icon admin-report-section-icon--assignment"><i class="bi bi-diagram-3"></i></span>
+                            <span class="admin-report-section-icon admin-report-section-icon--assignment"><i
+                                    class="bi bi-diagram-3"></i></span>
                             <div>
                                 <span class="admin-report-card__eyebrow">WORKFORCE CONTROL</span>
                                 <h2 class="admin-report-card__title">Assignment Management</h2>
@@ -173,16 +259,19 @@
                             </div>
                         </div>
 
-                        <form action="{{ route('admin.reports.assignment.update', $report) }}" method="POST" class="admin-report-assignment-form">
+                        <form action="{{ route('admin.reports.assignment.update', $report) }}" method="POST"
+                            class="admin-report-assignment-form">
                             @csrf
                             @method('PATCH')
 
                             <div class="admin-report-form-group">
                                 <label for="department_id">Department</label>
-                                <select name="department_id" id="department_id" class="admin-report-form-control" required>
+                                <select name="department_id" id="department_id" class="admin-report-form-control"
+                                    required>
                                     <option value="">Select Department</option>
                                     @foreach ($departments as $department)
-                                        <option value="{{ $department->id }}" @selected(old('department_id', $report->assigned_department_id) == $department->id) @disabled(!$department->is_active && $report->assigned_department_id != $department->id)>
+                                        <option value="{{ $department->id }}" @selected(old('department_id', $report->assigned_department_id) == $department->id)
+                                            @disabled(!$department->is_active && $report->assigned_department_id != $department->id)>
                                             {{ $department->name }}
                                             {{ !$department->is_active ? '(Inactive)' : '' }}
                                         </option>
@@ -198,7 +287,8 @@
                                 <select name="officer_id" id="officer_id" class="admin-report-form-control">
                                     <option value="">Unassigned</option>
                                     @foreach ($officers as $officer)
-                                        <option value="{{ $officer->id }}" data-department="{{ $officer->department_id }}" @selected(old('officer_id', $report->assigned_officer_id) == $officer->id)>
+                                        <option value="{{ $officer->id }}"
+                                            data-department="{{ $officer->department_id }}" @selected(old('officer_id', $report->assigned_officer_id) == $officer->id)>
                                             {{ $officer->name }} — {{ $officer->department?->name ?? 'No Department' }}
                                         </option>
                                     @endforeach
@@ -210,7 +300,9 @@
 
                             <div class="admin-report-form-group">
                                 <label for="notes">Assignment Notes <span>(Optional)</span></label>
-                                <textarea name="notes" id="notes" rows="4" class="admin-report-form-control admin-report-form-control--textarea" placeholder="Optional internal assignment notes...">{{ old('notes') }}</textarea>
+                                <textarea name="notes" id="notes" rows="4"
+                                    class="admin-report-form-control admin-report-form-control--textarea"
+                                    placeholder="Optional internal assignment notes...">{{ old('notes') }}</textarea>
                                 @error('notes')
                                     <div class="admin-report-field-error">{{ $message }}</div>
                                 @enderror
@@ -227,7 +319,8 @@
                 <section class="admin-report-card admin-report-activity-card">
                     <div class="admin-report-card__header">
                         <div class="admin-report-card__heading-with-icon">
-                            <span class="admin-report-section-icon admin-report-section-icon--activity"><i class="bi bi-clock-history"></i></span>
+                            <span class="admin-report-section-icon admin-report-section-icon--activity"><i
+                                    class="bi bi-clock-history"></i></span>
                             <div>
                                 <span class="admin-report-card__eyebrow">AUDIT TRAIL</span>
                                 <h2 class="admin-report-card__title">Activity History</h2>

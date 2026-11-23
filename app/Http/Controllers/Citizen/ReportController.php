@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use App\Models\User;
+use Illuminate\Support\Facades\Http;
 
 class ReportController extends Controller
 {
@@ -97,8 +99,69 @@ class ReportController extends Controller
 
         $storedFiles = [];
 
+        // Prepare officers belonging to the responsible department.// Prepare officers belonging to the responsible department.
+        $officers = User::whereHas('role', function ($query) {
+            $query->where('name', 'department_officer');
+        })
+            ->where('department_id', $department->id)
+            ->get()
+            ->map(function ($officer) use ($department) {
+
+                $activeComplaints = Report::where(
+                    'assigned_officer_id',
+                    $officer->id
+                )
+                    ->whereHas('status', function ($query) {
+                        $query->whereNotIn('slug', [
+                            'resolved',
+                            'closed',
+                            'completed',
+                            'cancelled',
+                        ]);
+                    })
+                    ->count();
+
+                return [
+                    'id' => $officer->id,
+                    'name' => $officer->name,
+                    'department' => $department->name,
+                    'is_active' => true,
+                    'is_available' => true,
+                    'active_complaints' => $activeComplaints,
+                    'max_capacity' => 10,
+                ];
+            })
+            ->values()
+            ->all();
+
+        $assignmentResult = null;
+        $assignedOfficerId = null;
+
+        try {
+            $response = Http::timeout(10)->post(
+                rtrim(env('AI_SERVICE_URL', 'http://127.0.0.1:8000'), '/')
+                    . '/assign-officer',
+                [
+                    'complaint_category' => $department->name,
+                    'officers' => $officers,
+                ]
+            );
+
+            if ($response->successful() && $response->json('success')) {
+                $assignmentResult = $response->json();
+                $assignedOfficerId = data_get(
+                    $assignmentResult,
+                    'officer.id'
+                );
+            }
+        } catch (\Throwable $exception) {
+            report($exception);
+        }
+
         try {
             DB::transaction(function () use (
+                $assignedOfficerId,
+                $assignmentResult,
                 $validated,
                 $request,
                 $status,
@@ -111,6 +174,7 @@ class ReportController extends Controller
                     'category_id' => $validated['category_id'],
                     'status_id' => $status->id,
                     'assigned_department_id' => $department->id,
+                    'assigned_officer_id' => $assignedOfficerId,
                     'title' => $validated['title'],
                     'description' => $validated['description'],
                     'latitude' => $validated['latitude'],
@@ -139,7 +203,14 @@ class ReportController extends Controller
                     'user_id' => auth()->id(),
                     'new_status_id' => $status->id,
                     'activity_type' => 'submitted',
-                    'description' => 'Report submitted by citizen.',
+                    'description' => 'Report submitted by citizen.' . (
+                        $assignmentResult
+                        ? ' AI assignment: ' . data_get($assignmentResult, 'reason')
+                        . ' Workload: ' . data_get($assignmentResult, 'assignment_details.active_complaints')
+                        . '/' . data_get($assignmentResult, 'assignment_details.capacity')
+                        . ' (' . data_get($assignmentResult, 'assignment_details.workload_percentage') . '%).'
+                        : ''
+                    ),
                 ]);
             });
         } catch (\Throwable $exception) {

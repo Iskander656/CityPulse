@@ -4,6 +4,9 @@ from pydantic import BaseModel, Field
 from app.services.classifier import classify_report
 from app.services.duplicate_detector import detect_duplicates
 
+from pydantic import BaseModel
+from app.assignment import assign_officer
+
 
 app = FastAPI(
     title="CityPulse AI",
@@ -101,3 +104,18 @@ def detect_report_duplicates(request: DuplicateDetectionRequest):
             status_code=500,
             detail="Duplicate report detection failed."
         )
+
+
+class AssignmentRequest(BaseModel):
+    complaint_category: str
+    officers: list[dict]
+
+@app.post("/assign-officer")
+async def automatic_assignment(request: AssignmentRequest):
+
+    result = assign_officer(
+        complaint_category=request.complaint_category,
+        officers=request.officers
+    )
+
+    return result
