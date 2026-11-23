@@ -9,10 +9,11 @@
 
     <div class="officer-dashboard-page">
         <div class="container-fluid officer-dashboard-container">
+            {{-- Header --}}
             @include('officer.dashboard.header')
-
+            {{-- Performance profile --}}
             @include('officer.dashboard.performance')
-
+            {{-- Recent Activities --}}
             @include('officer.dashboard.recent_activity')
 
             <footer class="officer-dashboard-footer">CITYPULSE <span>•</span> DEPARTMENT OPERATIONS</footer>
